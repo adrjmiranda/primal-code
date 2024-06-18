@@ -1,0 +1,48 @@
+@import '_reset.css';
+@import '_variables.css';
+@import 'keyframes.css';
+
+.container {
+	max-width: var(--w-max-container);
+	margin: 0 auto;
+	padding: 0 0.5rem;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+	font-weight: 900;
+	gap: 0.5rem;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(45deg, var(--black), var(--blue));
+}
+
+.logo:hover {
+	background-image: linear-gradient(-45deg, var(--black), var(--blue));
+}
+
+.logo img {
+	width: 40px;
+	animation: logo_rotate 0.8s linear 0s 1 normal none;
+	transition: 0.8s;
+}
+
+.logo:hover img {
+	transition: 0.8s;
+	transform: rotate(90deg);
+}
+
+/* Buttons */
+
+.btn {
+}
+
+.btn.btn-primary {
+}
+
+.btn.btn-secondary {
+}

@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<title>Primal Code</title>
 
 		<!-- Styles -->
@@ -15,6 +16,67 @@
 		<script defer src="js/index.js"></script>
 	</head>
 	<body>
-		<h1>Primal Code</h1>
+		<!-- Header -->
+
+		<header>
+			<!-- Navbar -->
+
+			<nav id="navbar">
+				<div class="container">
+					<a href="#" class="logo">
+						<img src="img/code.png" alt="Primal Code Logo" />Primal Code
+					</a>
+
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Categories</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#" class="login-btn">Login</a></li>
+					</ul>
+
+					<form action="#">
+						<input
+							type="search"
+							name="search"
+							id="search"
+							placeholder="Search..."
+						/>
+						<button type="submit">
+							<ion-icon name="search-outline"></ion-icon>
+						</button>
+					</form>
+				</div>
+			</nav>
+
+			<!-- Banner -->
+
+			<div id="banner">
+				<div class="container">
+					<div class="left">
+						<h1>Programming</h1>
+						<p>
+							Welcome to <span>Primal Code</span>, your definitive guide to the
+							world of technology.
+						</p>
+					</div>
+
+					<div class="right">
+						<img src="img/robot.png" alt="Robot" loading="eager" />
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Ion Icons -->
+
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+		></script>
 	</body>
 </html>
