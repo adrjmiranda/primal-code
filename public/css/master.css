@@ -3,9 +3,6 @@
 /* Navbar */
 
 #navbar {
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 80px;
 	display: flex;
@@ -88,7 +85,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding-top: 80px;
 }
 
 #banner .left {
@@ -133,4 +129,79 @@
 	height: 90%;
 	display: block;
 	animation: brightness_robot 8s linear 0s infinite alternate none;
+}
+
+/* Posts */
+
+main .container {
+	position: relative;
+	border-radius: 1.5rem 0.5rem;
+	border: 2px solid var(--white);
+	margin: 0 0.5rem;
+	transform: translateX(-50%);
+	left: calc(50% - 0.5rem);
+}
+
+main .categories-menu {
+	overflow-x: hidden;
+	gap: 1rem;
+	padding: 2rem 1rem;
+	align-items: center;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	width: 90%;
+	margin: 0 auto;
+}
+
+main .categories-menu::-webkit-scrollbar {
+	display: none;
+}
+
+main .categories-menu li a {
+	text-wrap: nowrap;
+	font-size: 1.02rem;
+	font-weight: 500;
+	border: 2px solid transparent;
+	padding: 0.5rem 0.8rem;
+	border-radius: 0.5rem 1rem;
+}
+
+main .categories-menu li a:hover {
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(
+		45deg,
+		var(--white),
+		var(--grey),
+		var(--blue),
+		var(--white)
+	);
+	border-color: var(--white);
+}
+
+main .container .left-btn,
+main .container .right-btn {
+	position: absolute;
+	top: 57%;
+	z-index: 1;
+	transform: translate(0, -50%);
+	font-size: 2.5rem;
+	color: var(--grey);
+	opacity: 0.2;
+}
+
+main .container .left-btn:hover,
+main .container .right-btn:hover {
+	color: var(--white);
+	transform: scale(1.2) translate(0, -42%);
+	opacity: 1;
+}
+
+main .container .left-btn {
+	left: 1.5rem;
+}
+
+main .container .right-btn {
+	right: 1.5rem;
 }
