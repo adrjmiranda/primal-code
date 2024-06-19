@@ -21,13 +21,15 @@ function scrollRight() {
 	});
 }
 
-leftButton.addEventListener('click', () => {
-	scrollRight();
-});
+leftButton &&
+	leftButton.addEventListener('click', () => {
+		scrollRight();
+	});
 
-rightButton.addEventListener('click', () => {
-	scrollLeft();
-});
+rightButton &&
+	rightButton.addEventListener('click', () => {
+		scrollLeft();
+	});
 
 // Toogle Navbar
 
@@ -36,7 +38,8 @@ const navbarForm = document.querySelector('#navbar form');
 
 const toggleMenuButton = document.querySelector('#toggle-menu');
 
-toggleMenuButton.addEventListener('click', () => {
-	navbarForm.classList.toggle('toggle-visibility');
-	navbarMenu.classList.toggle('toggle-visibility');
-});
+toggleMenuButton &&
+	toggleMenuButton.addEventListener('click', () => {
+		navbarForm && navbarForm.classList.toggle('toggle-visibility');
+		navbarMenu && navbarMenu.classList.toggle('toggle-visibility');
+	});
