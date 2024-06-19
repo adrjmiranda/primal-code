@@ -39,7 +39,6 @@
 /* Buttons */
 
 .btn {
-	border-radius: 1.5rem;
 	padding: 0.5rem;
 	font-size: 1.02rem;
 	font-weight: 500;
@@ -48,6 +47,7 @@
 
 .btn.btn-primary {
 	background-image: linear-gradient(45deg, var(--white), var(--black));
+	border-radius: 1.5rem;
 }
 
 .btn.btn-primary:hover {
@@ -57,16 +57,20 @@
 .btn.btn-secondary {
 	background-image: linear-gradient(
 		-45deg,
-		var(--white),
+		var(--black),
 		var(--light-blue),
 		var(--blue)
 	);
+	text-transform: uppercase;
+	font-size: 0.95rem;
+	color: var(--white);
+	border-radius: 0.5rem;
 }
 
 .btn.btn-secondary:hover {
 	background-image: linear-gradient(
 		45deg,
-		var(--white),
+		var(--black),
 		var(--light-blue),
 		var(--blue)
 	);

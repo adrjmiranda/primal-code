@@ -19,6 +19,7 @@ body {
 		var(--blue),
 		var(--light-blue)
 	);
+	background-repeat: no-repeat;
 }
 
 h1,

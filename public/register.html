@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<title>Primal Code</title>
+
+		<!-- Styles -->
+
+		<link rel="stylesheet" href="css/master.css" />
+
+		<!-- Scripts -->
+
+		<script defer src="js/index.js"></script>
+	</head>
+	<body>
+		<div id="auth">
+			<div class="container">
+				<form action="#">
+					<h1><ion-icon name="code-slash-outline"></ion-icon>Register now</h1>
+
+					<div class="input-field">
+						<label for="name"
+							><ion-icon name="person-circle-outline"></ion-icon>Name</label
+						>
+						<input type="text" name="name" id="name" placeholder="Your name" />
+					</div>
+
+					<div class="input-field">
+						<label for="email"
+							><ion-icon name="mail-outline"></ion-icon>E-mail</label
+						>
+						<input
+							type="email"
+							name="email"
+							id="email"
+							placeholder="Your email"
+						/>
+					</div>
+
+					<div class="input-field">
+						<label for="password"
+							><ion-icon name="lock-closed-outline"></ion-icon>Password</label
+						>
+						<input
+							type="password"
+							name="password"
+							id="password"
+							placeholder="Your password"
+						/>
+
+						<div class="toggle-visibility-pass" data-area="pass">
+							<button type="button" class="visible">
+								<ion-icon name="eye-outline"></ion-icon>
+							</button>
+							<button type="button" class="hidden">
+								<ion-icon name="eye-off-outline"></ion-icon>
+							</button>
+						</div>
+					</div>
+
+					<div class="input-field">
+						<label for="password_confirmation"
+							><ion-icon name="lock-closed-outline"></ion-icon>Password
+							confirmation</label
+						>
+						<input
+							type="password"
+							name="password_confirmation"
+							id="password_confirmation"
+							placeholder="Your password again"
+						/>
+
+						<div class="toggle-visibility-pass" data-area="passconfirmation">
+							<button type="button" class="visible">
+								<ion-icon name="eye-outline"></ion-icon>
+							</button>
+							<button type="button" class="hidden">
+								<ion-icon name="eye-off-outline"></ion-icon>
+							</button>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-secondary">Register</button>
+
+					<p class="toggle-form">
+						Already have an account? <a href="#">Login</a>
+					</p>
+				</form>
+			</div>
+		</div>
+
+		<!-- Ion Icons -->
+
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+		></script>
+	</body>
+</html>

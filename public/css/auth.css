@@ -1,0 +1,124 @@
+#auth,
+#auth .container {
+	min-height: 100vh;
+}
+
+#auth .container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#auth form {
+	background-image: linear-gradient(
+		45deg,
+		var(--black),
+		var(--blue),
+		var(--light-blue)
+	);
+	max-width: 450px;
+	flex: 1;
+	padding: 2rem;
+	border-radius: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	filter: drop-shadow(1px 1px 15px #fff1);
+}
+
+#auth form h1 {
+	color: var(--grey);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	text-align: center;
+	justify-content: center;
+	font-weight: 900;
+	text-transform: capitalize;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(-45deg, var(--black), var(--blue));
+}
+
+#auth form h1 ion-icon {
+	color: var(--white);
+	font-size: 3rem;
+}
+
+#auth form .input-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	position: relative;
+}
+
+#auth form .input-field label {
+	color: var(--grey);
+	font-weight: 500;
+	text-transform: capitalize;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+#auth form .input-field label ion-icon {
+	color: var(--white);
+}
+
+#auth form .input-field input {
+	border: 2px solid var(--grey);
+	color: var(--white);
+	font-size: 1rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+}
+
+#auth form .input-field input[type='password'] {
+	padding-right: 2.25rem;
+}
+
+#auth form .input-field input:focus {
+	border-color: var(--white);
+}
+
+#auth form .input-field .toggle-visibility-pass {
+	position: absolute;
+	right: 0.5rem;
+	top: 2.25rem;
+}
+
+#auth form .input-field .toggle-visibility-pass button {
+	color: var(--grey);
+	font-size: 1.2rem;
+}
+
+#auth form .toggle-form {
+	font-weight: 300;
+	color: var(--grey);
+	font-size: 0.95rem;
+	text-align: center;
+}
+
+#auth form .toggle-form a {
+	font-weight: 400;
+}
+
+#auth form .toggle-form a:hover {
+	color: var(--white);
+	font-weight: 600;
+}
+
+@media (max-width: 576px) {
+	#auth form {
+		padding: 2rem 1rem;
+	}
+
+	#auth form h1 {
+		flex-direction: column;
+	}
+
+	#auth form h1 ion-icon {
+		font-size: 25vw;
+	}
+}
