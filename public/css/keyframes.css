@@ -241,3 +241,13 @@
 		transform: scale(1) rotate(360deg);
 	}
 }
+
+@keyframes zoom_image_bg {
+	from {
+		transform: scale(1);
+	}
+
+	to {
+		transform: scale(1.2);
+	}
+}
