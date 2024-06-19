@@ -53,7 +53,7 @@
 	padding: 0.5rem 2rem 0.5rem 1rem;
 	border-radius: 0.5rem 1rem;
 	color: var(--white);
-	font: 1rem;
+	font-size: 1rem;
 }
 
 #navbar form input:focus {
@@ -251,6 +251,10 @@
 #featured-post .info .title {
 	font-size: 4rem;
 	text-transform: capitalize;
+	width: calc(100% - 2rem);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
 }
 
 #featured-post .info .date {
@@ -353,9 +357,17 @@
 	background-image: linear-gradient(45deg, var(--black), var(--blue));
 }
 
+#posts .post-card .info .title,
+#posts .post-card .info .description {
+	width: calc(100% - 2rem);
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 #posts .post-card .info .title {
 	font-weight: 600;
 	text-transform: capitalize;
+	text-wrap: nowrap;
 }
 
 #posts .post-card .info .date {
@@ -365,9 +377,6 @@
 
 #posts .post-card .info .description {
 	font-weight: 300;
-	width: calc(100% - 2rem);
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 #posts .post-card .post-link {
@@ -400,4 +409,104 @@
 
 #posts .post-card:hover .post-link {
 	right: -0.5rem;
+}
+
+/* Footer */
+
+footer {
+	background-color: var(--black);
+	padding: 4rem 0;
+}
+
+footer .container {
+	display: flex;
+	flex-direction: column;
+}
+
+footer .info {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4rem;
+}
+
+footer .col {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	color: var(--grey);
+}
+
+footer .col h4 {
+	color: var(--light-blue);
+}
+
+footer .col p {
+	text-align: justify;
+	line-height: 1.5;
+	font-size: 1.02rem;
+}
+
+footer .col p::first-letter {
+	margin-left: 1.5rem;
+}
+
+footer .col ul {
+	flex-direction: column;
+	gap: 1rem;
+}
+
+footer .col ul li a:hover {
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(45deg, var(--white), var(--blue));
+}
+
+footer .col form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+footer .col form input,
+footer .col form textarea {
+	border: 2px solid var(--grey);
+	border-radius: 1.5rem;
+	padding: 0.8rem 1rem;
+	color: var(--grey);
+}
+
+footer .col form input:focus,
+footer .col form textarea:focus {
+	border-color: var(--white);
+}
+
+footer .col form input::placeholder,
+footer .col form textarea::placeholder {
+	font-weight: 300;
+	font-size: 1rem;
+}
+
+footer .bottom-footer {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top: 1px solid #9993;
+	padding-top: 1.5rem;
+	margin-top: 3rem;
+}
+
+footer .bottom-footer p {
+	font-weight: 300;
+	color: var(--grey);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 0.9rem;
+}
+
+footer .bottom-footer p span {
+	font-weight: 400;
+	color: var(--white);
 }
