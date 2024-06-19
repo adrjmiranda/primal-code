@@ -28,3 +28,15 @@ leftButton.addEventListener('click', () => {
 rightButton.addEventListener('click', () => {
 	scrollLeft();
 });
+
+// Toogle Navbar
+
+const navbarMenu = document.querySelector('#navbar ul');
+const navbarForm = document.querySelector('#navbar form');
+
+const toggleMenuButton = document.querySelector('#toggle-menu');
+
+toggleMenuButton.addEventListener('click', () => {
+	navbarForm.classList.toggle('toggle-visibility');
+	navbarMenu.classList.toggle('toggle-visibility');
+});

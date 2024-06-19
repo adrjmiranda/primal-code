@@ -8,6 +8,17 @@
 	display: flex;
 	align-items: center;
 	z-index: 1;
+	position: relative;
+}
+
+#toggle-menu {
+	position: absolute;
+	top: 3.5rem;
+	right: -0.5rem;
+	transform: translate(-50%, -50%);
+	font-size: 2.5rem;
+	color: var(--white);
+	display: none;
 }
 
 #navbar .container {
@@ -32,13 +43,13 @@
 	background-image: linear-gradient(45deg, var(--black), var(--blue));
 }
 
-#navbar ul li a.login-btn {
+#navbar ul li #login-btn {
 	border: 3px solid var(--white);
 	padding: 0.5rem 1.5rem;
 	border-radius: 0.5rem 1rem;
 }
 
-#navbar ul li a.login-btn:hover {
+#navbar ul li #login-btn:hover {
 	border-color: var(--black);
 }
 
@@ -50,7 +61,7 @@
 #navbar form input {
 	flex: 1;
 	border: 3px solid var(--grey);
-	padding: 0.5rem 2rem 0.5rem 1rem;
+	padding: 0.5rem 2.5rem 0.5rem 1rem;
 	border-radius: 0.5rem 1rem;
 	color: var(--white);
 	font-size: 1rem;
@@ -62,8 +73,8 @@
 
 #navbar form button {
 	position: absolute;
-	right: 0.5rem;
-	top: 0.5rem;
+	right: 1rem;
+	top: 0.7rem;
 	color: var(--grey);
 	font-size: 1.2rem;
 	transition: all 0.3s ease;
@@ -250,7 +261,7 @@
 }
 
 #featured-post .info .title {
-	font-size: 4rem;
+	font-size: 2.5rem;
 	text-transform: capitalize;
 	width: calc(100% - 2rem);
 	overflow: hidden;
@@ -266,7 +277,7 @@
 
 #featured-post .info .description {
 	font-weight: 500;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: var(--grey);
 	white-space: nowrap;
 	overflow: hidden;
@@ -510,4 +521,203 @@ footer .bottom-footer p {
 footer .bottom-footer p span {
 	font-weight: 400;
 	color: var(--white);
+}
+
+/* Media Query */
+
+@media (max-width: 1280px) {
+	/* Banner */
+
+	#banner {
+		position: relative;
+	}
+
+	#banner .left {
+		align-items: center;
+		flex: 1;
+		text-align: center;
+	}
+
+	#banner .left p {
+		max-width: 500px;
+	}
+
+	#banner .right img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: -1;
+		opacity: 0.3;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@media (max-width: 1098px) {
+	/* Posts */
+
+	#posts {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 960px) {
+	/* Footer */
+
+	footer .info {
+		grid-template-columns: 100%;
+	}
+}
+
+@media (max-width: 950px) {
+	/* Navbar */
+
+	#navbar .logo {
+		left: 0.5rem;
+		position: absolute;
+		top: 2rem;
+	}
+
+	#navbar {
+		height: auto;
+		padding: 7rem 0 0;
+	}
+
+	#toggle-menu {
+		display: block;
+	}
+
+	#toggle-menu:hover {
+		transform: translate(-50%, -50%) scale(1.1);
+	}
+
+	#navbar .container {
+		flex-direction: column;
+		gap: 2.5rem;
+	}
+
+	#navbar ul,
+	#navbar form {
+		display: none;
+	}
+
+	#navbar ul {
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+	}
+
+	#navbar ul li {
+		flex: 1;
+	}
+
+	#navbar ul li a {
+		width: 100%;
+		display: block;
+		text-align: center;
+		border: 3px solid #fff5;
+		padding: 0.5rem 1.5rem;
+		border-radius: 2rem 1rem;
+	}
+
+	#navbar ul li a:hover {
+		border-color: var(--black);
+	}
+
+	#navbar ul li #login-btn {
+		background-image: linear-gradient(
+			45deg,
+			var(--black),
+			var(--blue),
+			var(--black)
+		);
+		color: var(--grey);
+		border-radius: 1.5rem;
+		border-color: transparent;
+		font-weight: 500;
+	}
+
+	#navbar ul li #login-btn:hover {
+		background-image: linear-gradient(
+			45deg,
+			var(--black),
+			var(--blue),
+			var(--black)
+		);
+		font-weight: 500;
+		border: 2px solid var(--black);
+	}
+
+	#navbar form {
+		width: 100%;
+	}
+
+	#navbar form input {
+		border-radius: 1rem;
+	}
+}
+
+@media (max-width: 880px) {
+	/* Categories Bar */
+
+	#category-bar .categories-menu {
+		width: 80%;
+	}
+
+	/* Featured Post */
+
+	#featured-post .info {
+		padding: 1.5rem 1rem;
+	}
+
+	#featured-post .info .title {
+		font-size: 5vw;
+	}
+
+	#featured-post .info .description {
+		font-size: 1rem;
+	}
+
+	#featured-post .btn-read {
+		visibility: visible;
+		left: 0;
+		width: 100%;
+		border-radius: 0;
+	}
+
+	/* Posts */
+
+	#posts .post-card .post-link {
+		right: 0;
+		width: 110%;
+		border-radius: 0;
+		justify-content: center;
+		text-align: center;
+		padding-left: 4rem;
+	}
+}
+
+@media (max-width: 720px) {
+	/* Banner */
+
+	#banner .left h1 {
+		font-size: 10vw;
+	}
+
+	#banner .left p {
+		font-size: 5vw;
+	}
+
+	/* Posts */
+
+	#posts {
+		grid-template-columns: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	/* Categories Bar */
+
+	#category-bar .categories-menu {
+		width: 60%;
+	}
 }
