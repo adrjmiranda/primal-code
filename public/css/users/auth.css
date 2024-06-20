@@ -1,3 +1,5 @@
+/* Auth */
+
 #auth,
 #auth .container {
 	min-height: 100vh;
@@ -124,6 +126,8 @@
 	color: var(--white);
 	font-weight: 600;
 }
+
+/* Media Query */
 
 @media (max-width: 576px) {
 	#auth form {
