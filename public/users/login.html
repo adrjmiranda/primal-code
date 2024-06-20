@@ -4,29 +4,22 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
 		<title>Primal Code</title>
 
 		<!-- Styles -->
 
-		<link rel="stylesheet" href="css/master.css" />
+		<link rel="stylesheet" href="../css/users/master.css" />
 
 		<!-- Scripts -->
 
-		<script defer src="js/index.js"></script>
+		<script defer src="../js/users.js"></script>
 	</head>
 	<body>
 		<div id="auth">
 			<div class="container">
 				<form action="#">
-					<h1><ion-icon name="code-slash-outline"></ion-icon>Register now</h1>
-
-					<div class="input-field">
-						<label for="name"
-							><ion-icon name="person-circle-outline"></ion-icon>Name</label
-						>
-						<input type="text" name="name" id="name" placeholder="Your name" />
-					</div>
+					<h1><ion-icon name="code-slash-outline"></ion-icon>Login</h1>
 
 					<div class="input-field">
 						<label for="email"
@@ -55,38 +48,16 @@
 							<button type="button" class="visible">
 								<ion-icon name="eye-outline"></ion-icon>
 							</button>
-							<button type="button" class="hidden">
+							<button type="button" class="hidden hide">
 								<ion-icon name="eye-off-outline"></ion-icon>
 							</button>
 						</div>
 					</div>
 
-					<div class="input-field">
-						<label for="password_confirmation"
-							><ion-icon name="lock-closed-outline"></ion-icon>Password
-							confirmation</label
-						>
-						<input
-							type="password"
-							name="password_confirmation"
-							id="password_confirmation"
-							placeholder="Your password again"
-						/>
-
-						<div class="toggle-visibility-pass" data-area="passconfirmation">
-							<button type="button" class="visible">
-								<ion-icon name="eye-outline"></ion-icon>
-							</button>
-							<button type="button" class="hidden">
-								<ion-icon name="eye-off-outline"></ion-icon>
-							</button>
-						</div>
-					</div>
-
-					<button type="submit" class="btn btn-secondary">Register</button>
+					<button type="submit" class="btn btn-secondary">Enter</button>
 
 					<p class="toggle-form">
-						Already have an account? <a href="#">Login</a>
+						Don't have an account yet? <a href="#">Register</a>
 					</p>
 				</form>
 			</div>

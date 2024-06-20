@@ -1,4 +1,4 @@
-@import '_reset.css';
+@import '../_reset.css';
 @import '_variables.css';
 @import 'keyframes.css';
 
@@ -77,6 +77,10 @@
 }
 
 .toggle-visibility {
+	display: none;
+}
+
+.hide {
 	display: none;
 }
 
