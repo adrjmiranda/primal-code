@@ -1,0 +1,53 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--roboto);
+}
+
+html,
+body {
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	background-image: linear-gradient(60deg, var(--blue), var(--light-blue));
+	background-repeat: no-repeat;
+	min-height: 100vh;
+	color: var(--black);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--montserrat);
+}
+
+a {
+	text-decoration: none;
+	color: var(--white);
+}
+
+ul {
+	list-style: none;
+	display: flex;
+}
+
+input,
+select,
+textarea,
+button {
+	border: none;
+	background-color: transparent;
+	outline: none;
+}
+
+select,
+button {
+	cursor: pointer;
+}
