@@ -1,0 +1,51 @@
+#content .content-area .content-data .data table tbody tr td:nth-child(2) {
+	text-transform: capitalize;
+	font-weight: 500;
+}
+
+#content
+	.content-area
+	.content-data
+	.data
+	table
+	tbody
+	tr
+	td:nth-child(2)
+	a:hover {
+	color: var(--blue);
+}
+
+#content .content-area .content-data .data table tbody tr td:nth-child(3) {
+	font-weight: bold;
+	color: var(--blue);
+}
+
+#content .content-area .content-data .data table tbody tr td:nth-child(4) {
+	display: flex;
+	gap: 0.3rem;
+	align-items: center;
+}
+
+#content
+	.content-area
+	.content-data
+	.data
+	table
+	tbody
+	tr
+	td:nth-child(4)
+	ion-icon {
+	color: var(--blue);
+}
+
+#content .content-area .content-data .data table tbody tr td:nth-child(5) {
+	font-weight: bold;
+}
+
+#content .content-area .content-data .data table tbody tr td:nth-child(6) {
+	font-family: monospace;
+	text-transform: uppercase;
+	font-weight: 500;
+}
+
+/* Media Query */
