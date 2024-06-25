@@ -8,6 +8,7 @@
 }
 
 #content .inner {
+	position: relative;
 	background-image: linear-gradient(
 		60deg,
 		var(--light-blue),
@@ -35,6 +36,14 @@
 	top: 0;
 	left: 0;
 	width: 20%;
+}
+
+#content .side-menu.left_menu {
+	animation: left_menu 1s ease-in-out 0s 1 normal forwards;
+}
+
+#content .side-menu.right_menu {
+	animation: right_menu 1s ease-in-out 0s 1 normal forwards;
 }
 
 #content .side-menu .inner {
@@ -109,6 +118,33 @@
 	right: 0;
 	width: 80%;
 	height: 100%;
+}
+
+#content .content-area.expand_content {
+	animation: expand_content 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+#content .content-area.contract_content {
+	animation: contract_content 1.1s ease-in-out 0s 1 normal forwards;
+}
+
+#toggle-menu-btn {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	left: 2rem;
+	top: 2rem;
+}
+
+#toggle-menu-btn ion-icon {
+	color: var(--dark-blue);
+	font-size: 2rem;
+}
+
+#toggle-menu-btn:hover ion-icon {
+	color: var(--blue);
+	transform: scale(1.1);
 }
 
 #content .content-area .content-header,

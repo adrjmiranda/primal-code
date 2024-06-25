@@ -7,3 +7,43 @@
 		transform: scale(1) rotate(360deg);
 	}
 }
+
+@keyframes left_menu {
+	from {
+		left: 0;
+	}
+
+	to {
+		left: -100%;
+	}
+}
+
+@keyframes right_menu {
+	from {
+		left: -100%;
+	}
+
+	to {
+		left: 0;
+	}
+}
+
+@keyframes expand_content {
+	from {
+		width: 80%;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes contract_content {
+	from {
+		width: 100%;
+	}
+
+	to {
+		width: 80%;
+	}
+}

@@ -41,3 +41,35 @@ toggleVisibilityPassButton &&
 			}
 		});
 	});
+
+// Toggle Menu
+
+const toggleMenuButton = document.querySelector('#toggle-menu-btn');
+
+const sideMenu = document.querySelector('#content .side-menu');
+const contentArea = document.querySelector('#content .content-area');
+
+toggleMenuButton &&
+	toggleMenuButton.addEventListener('click', () => {
+		let menuState = toggleMenuButton.dataset.active;
+
+		if (menuState === 'true') {
+			sideMenu.classList.remove('right_menu');
+			contentArea.classList.remove('contract_content');
+
+			sideMenu.classList.add('left_menu');
+			contentArea.classList.add('expand_content');
+
+			toggleMenuButton.dataset.active = 'false';
+		}
+
+		if (menuState === 'false') {
+			sideMenu.classList.remove('left_menu');
+			contentArea.classList.remove('expand_content');
+
+			sideMenu.classList.add('right_menu');
+			contentArea.classList.add('contract_content');
+
+			toggleMenuButton.dataset.active = 'true';
+		}
+	});
