@@ -8,6 +8,6 @@ class HomeController
 {
   public static function index()
   {
-    return Generator::view('Users/index');
+    return Generator::render('Users/index', ['name' => 'Adriano']);
   }
 }

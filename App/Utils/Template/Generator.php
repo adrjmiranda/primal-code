@@ -7,7 +7,7 @@ use Exception;
 class Generator
 {
   private static string $baseUrl;
-  private static string $masterLayout = '';
+  private static string $masterLayout;
   private static mixed $masterContent;
   private static array $masterData;
 
@@ -29,7 +29,7 @@ class Generator
     return $path;
   }
 
-  public static function view(string $template, array $data = [])
+  public static function render(string $template, array $data = [])
   {
     $templatePath = Generator::getTemplateFile($template);
 
@@ -51,7 +51,7 @@ class Generator
       $layout = Generator::$masterLayout;
       Generator::$masterLayout = '';
 
-      return Generator::view($layout, $allData);
+      return Generator::render($layout, $allData);
     }
 
     return $content;
