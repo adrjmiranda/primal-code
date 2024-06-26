@@ -46,6 +46,26 @@
 	animation: right_menu 1s ease-in-out 0s 1 normal forwards;
 }
 
+#close-mobile-menu {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 1px 1px 25px 5px rgba(13, 15, 54, 0.3);
+	border-radius: 0.5rem;
+	width: fit-content;
+	padding: 0.5rem;
+	align-self: flex-end;
+}
+
+#close-mobile-menu:hover {
+	transform: scale(1.1);
+}
+
+#close-mobile-menu ion-icon {
+	color: var(--dark-blue);
+	font-size: 2rem;
+}
+
 #content .side-menu .inner {
 	display: flex;
 	flex-direction: column;
@@ -69,6 +89,7 @@
 
 #content .side-menu .menu-header h3 {
 	font-size: 1.5rem;
+	font-size: 1.4vw;
 	text-transform: uppercase;
 	font-weight: 900;
 	background-clip: text;
@@ -312,4 +333,112 @@
 	transform: scale(1.01);
 }
 
+#content .content-area .content-data .data table tbody tr td:last-child ul {
+	display: flex;
+	gap: 0.5rem;
+}
+
+#content
+	.content-area
+	.content-data
+	.data
+	table
+	tbody
+	tr
+	td:last-child
+	ul
+	li
+	a:hover
+	ion-icon {
+	transform: scale(1.1);
+}
+
+#content
+	.content-area
+	.content-data
+	.data
+	table
+	tbody
+	tr
+	td:last-child
+	.edit-btn
+	ion-icon {
+	color: var(--warning-orange);
+}
+
+#content
+	.content-area
+	.content-data
+	.data
+	table
+	tbody
+	tr
+	td:last-child
+	.toggle-visibility-btn
+	ion-icon {
+	color: var(--success-green);
+}
+
+#content
+	.content-area
+	.content-data
+	.data
+	table
+	tbody
+	tr
+	td:last-child
+	.remove-btn
+	ion-icon {
+	color: var(--danger-red);
+}
+
 /* Media Query */
+
+@media (max-width: 1360px) {
+	/* Side Menu */
+
+	#content .side-menu {
+		display: none;
+		z-index: 3;
+		background-color: var(--blue);
+	}
+
+	#content .side-menu.left_menu {
+		width: 100%;
+		display: block;
+		animation: none;
+	}
+
+	#content .side-menu.right_menu {
+		animation: none;
+		display: none;
+	}
+
+	#close-mobile-menu {
+		display: flex;
+	}
+
+	#content .side-menu .menu li a:hover,
+	#content .side-menu .menu li a.active {
+		transform: scale(1.01);
+		border-radius: 1rem 0.5rem;
+	}
+
+	/* Content Area */
+
+	#content .content-area {
+		width: 100%;
+	}
+
+	#content .content-area.expand_content,
+	#content .content-area.contract_content {
+		animation: none;
+	}
+}
+
+@media (max-width: 576px) {
+	#content .content-area .content-header .inner {
+		flex-direction: column;
+		gap: 2rem;
+	}
+}

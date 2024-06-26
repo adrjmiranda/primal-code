@@ -9,6 +9,10 @@
 	--yellow: #f1f6ce;
 	--white: #fefeff;
 
+	--success-green: #174b42;
+	--danger-red: #fe0000;
+	--warning-orange: #fe9400;
+
 	--container-padding: 0.5rem;
 
 	--roboto: 'Roboto', sans-serif;

@@ -45,6 +45,7 @@ toggleVisibilityPassButton &&
 // Toggle Menu
 
 const toggleMenuButton = document.querySelector('#toggle-menu-btn');
+const closeMenuMobile = document.querySelector('#close-mobile-menu');
 
 const sideMenu = document.querySelector('#content .side-menu');
 const contentArea = document.querySelector('#content .content-area');
@@ -72,4 +73,11 @@ toggleMenuButton &&
 
 			toggleMenuButton.dataset.active = 'true';
 		}
+	});
+
+closeMenuMobile &&
+	closeMenuMobile.addEventListener('click', () => {
+		sideMenu.classList.remove('left_menu');
+		sideMenu.classList.add('right_menu');
+		toggleMenuButton.dataset.active = 'true';
 	});
