@@ -55,25 +55,16 @@
 }
 
 .btn.btn-secondary {
-	background-image: linear-gradient(
-		-45deg,
-		var(--black),
-		var(--light-blue),
-		var(--blue)
-	);
+	background-image: linear-gradient(-45deg, var(--black), var(--blue));
 	text-transform: uppercase;
 	font-size: 0.95rem;
 	color: var(--white);
 	border-radius: 0.5rem;
+	font-weight: 300;
 }
 
 .btn.btn-secondary:hover {
-	background-image: linear-gradient(
-		45deg,
-		var(--black),
-		var(--light-blue),
-		var(--blue)
-	);
+	background-image: linear-gradient(45deg, var(--black), var(--blue));
 }
 
 .toggle-visibility {
