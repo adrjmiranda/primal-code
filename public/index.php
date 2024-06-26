@@ -2,10 +2,7 @@
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use App\Http\Router;
-
-$router = new Router($baseUrl);
-
-$router->get('/', 'App\\Controllers\\Users\\HomeController@index');
+require_once __DIR__ . '/../App/Routes/Users/main.php';
+require_once __DIR__ . '/../App/Routes/Authors/main.php';
 
 $router->run();
