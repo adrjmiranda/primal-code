@@ -2,12 +2,13 @@
 
 namespace App\Controllers\Users;
 
+use App\Http\Request;
 use App\Utils\Template\Generator;
 
 class HomeController
 {
-  public static function index()
+  public function index(Request $request, array $params)
   {
-    return Generator::render('Users/index', ['name' => 'Adriano']);
+    return Generator::render('Users/index');
   }
 }

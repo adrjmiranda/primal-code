@@ -11,7 +11,12 @@ class Generator
   private static mixed $masterContent;
   private static array $masterData;
 
-  private static function getTemplateFile(string $template): string
+  private static function getBaseUrl()
+  {
+    return $_ENV['BASE_URL'] ?? '';
+  }
+
+  private static function getTemplateFile(string $template): ?string
   {
     $folderName = explode('/', $template)[0] ?? '';
     $fileName = explode('/', $template)[1] ?? '';
@@ -29,9 +34,10 @@ class Generator
     return $path;
   }
 
-  public static function render(string $template, array $data = [])
+  public static function render(string $template, array $data = []): mixed
   {
     $templatePath = Generator::getTemplateFile($template);
+    $data['base_url'] = Generator::getBaseUrl();
 
     ob_start();
 
@@ -63,7 +69,7 @@ class Generator
     Generator::$masterData = $data;
   }
 
-  private static function load()
+  private static function load(): mixed
   {
     return Generator::$masterContent;
   }

@@ -13,7 +13,7 @@ Generator::extendLayout('Users/master');
   <nav id="navbar">
     <div class="container">
       <a href="#" class="logo">
-        <img src="../img/code.png" alt="Primal Code Logo" loading="eager" />Primal Code
+        <img src="<?= $base_url ?>/img/code.png" alt="Primal Code Logo" loading="eager" />Primal Code
       </a>
 
       <ul>
@@ -50,7 +50,7 @@ Generator::extendLayout('Users/master');
       </div>
 
       <div class="right">
-        <img src="../img/robot.png" alt="Robot" loading="eager" />
+        <img src="<?= $base_url ?>/img/robot.png" alt="Robot" loading="eager" />
       </div>
     </div>
   </div>
@@ -90,7 +90,7 @@ Generator::extendLayout('Users/master');
 
     <div id="featured-post">
       <div class="img">
-        <img src="../img/post_14.jpg" alt="..." loading="lazy" />
+        <img src="<?= $base_url ?>/img/post_14.jpg" alt="..." loading="lazy" />
       </div>
 
       <div class="info">
@@ -114,7 +114,7 @@ Generator::extendLayout('Users/master');
     <div id="posts">
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_1.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_1.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -134,7 +134,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_2.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_2.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -151,7 +151,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_3.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_3.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -168,7 +168,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_4.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_4.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -185,7 +185,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_5.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_5.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -202,7 +202,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_6.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_6.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -219,7 +219,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_7.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_7.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -236,7 +236,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_8.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_8.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -253,7 +253,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_9.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_9.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -270,7 +270,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_10.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_10.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -287,7 +287,7 @@ Generator::extendLayout('Users/master');
 
       <div class="post-card">
         <div class="img">
-          <img src="../img/post_11.jpg" alt="..." loading="lazy" />
+          <img src="<?= $base_url ?>/img/post_11.jpg" alt="..." loading="lazy" />
         </div>
 
         <div class="info">
@@ -327,7 +327,7 @@ Generator::extendLayout('Users/master');
     <div class="info">
       <div class="col">
         <a href="#" class="logo">
-          <img src="../img/code.png" alt="Primal Code Logo" loading="lazy" />Primal Code
+          <img src="<?= $base_url ?>/img/code.png" alt="Primal Code Logo" loading="lazy" />Primal Code
         </a>
 
         <p>
