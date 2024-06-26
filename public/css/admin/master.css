@@ -24,7 +24,6 @@
 
 #content .side-menu,
 #content .content-area {
-	position: absolute;
 	display: flex;
 	flex-direction: column;
 }
@@ -32,6 +31,7 @@
 /* Side Menu */
 
 #content .side-menu {
+	position: fixed;
 	height: 100%;
 	top: 0;
 	left: 0;
@@ -70,6 +70,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 4rem;
+	height: calc(100% - 2rem);
 }
 
 #content .side-menu .menu-header {
@@ -89,7 +90,6 @@
 
 #content .side-menu .menu-header h3 {
 	font-size: 1.5rem;
-	font-size: 1.4vw;
 	text-transform: uppercase;
 	font-weight: 900;
 	background-clip: text;
@@ -135,6 +135,7 @@
 /* Content Area */
 
 #content .content-area {
+	position: absolute;
 	top: 0;
 	right: 0;
 	width: 80%;
@@ -252,6 +253,50 @@
 	width: 80px;
 	border-radius: 50%;
 	filter: drop-shadow(1px 1px 15px #0003);
+}
+
+/* Search Options */
+
+#content .content-area .search-options .inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#content .content-area .search-options form {
+	background-image: linear-gradient(30deg, var(--white), var(--yellow));
+	border-radius: 0.5rem;
+	box-shadow: 1px 1px 25px 5px rgba(13, 15, 54, 0.3);
+	position: relative;
+}
+
+#content .content-area .search-options form input {
+	padding: 0.5rem;
+	font-size: 1rem;
+}
+
+#content .content-area .search-options form select {
+	padding: 0.5rem;
+}
+
+#content .content-area .search-options #search-by {
+	padding: 0.5rem 1.9rem 0.5rem 1rem;
+}
+
+#content .content-area .search-options #search-by button {
+	color: var(--dark-blue);
+	font-size: 1.05rem;
+	position: absolute;
+	right: 0.7rem;
+	top: 1rem;
+}
+
+#content .content-area .search-options #search-by button:hover {
+	transform: scale(1.1);
+}
+
+#content .content-area .search-options #sort-by {
+	padding: 0.5rem 1rem;
 }
 
 /* Content Data */
@@ -433,6 +478,19 @@
 	#content .content-area.expand_content,
 	#content .content-area.contract_content {
 		animation: none;
+	}
+}
+
+@media (max-width: 580px) {
+	#content .content-area .search-options .inner {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	#content .content-area .search-options form,
+	#content .content-area .search-options form input,
+	#content .content-area .search-options form select {
+		width: 100%;
 	}
 }
 
