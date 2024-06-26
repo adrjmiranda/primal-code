@@ -35,8 +35,33 @@
 }
 
 .btn.btn-secondary {
+	background-image: linear-gradient(
+		-60deg,
+		var(--light-blue),
+		var(--white),
+		var(--blue)
+	);
+	color: var(--black);
+}
+
+.btn.btn-secondary:hover {
+	background-image: linear-gradient(
+		60deg,
+		var(--light-blue),
+		var(--white),
+		var(--blue)
+	);
 }
 
 .hide {
 	display: none;
+}
+
+#editor-form {
+	height: 100%;
+}
+
+#editor-form .btn {
+	width: 100%;
+	margin-top: 1.5rem;
 }
