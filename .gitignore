@@ -6,3 +6,9 @@ composer.phar
 # composer.lock
 
 .env
+
+# Unnecessary files
+**/Cache
+
+**/img/users
+**/img/authors
