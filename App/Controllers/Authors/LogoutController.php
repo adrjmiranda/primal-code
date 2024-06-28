@@ -12,6 +12,6 @@ class LogoutController
   {
     Config::logout();
 
-    return Generator::render('Manager/login');
+    return Generator::render('Authors/login');
   }
 }

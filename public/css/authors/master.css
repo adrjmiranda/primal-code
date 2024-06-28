@@ -133,6 +133,13 @@
 	color: var(--white);
 }
 
+#logout-btn {
+	position: absolute;
+	bottom: 2rem;
+	left: 2rem;
+	width: calc(100% - 4rem);
+}
+
 /* Content Area */
 
 #content .content-area {
