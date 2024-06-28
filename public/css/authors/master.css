@@ -201,14 +201,14 @@
 	text-transform: capitalize;
 }
 
-#content .content-area .content-header .admin-info {
+#content .content-area .content-header .authors-info {
 	display: flex;
 	align-items: flex-end;
 	gap: 0.5rem;
 	height: 80px;
 }
 
-#content .content-area .content-header .admin-info .info {
+#content .content-area .content-header .authors-info .info {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -221,11 +221,11 @@
 	box-shadow: 1px 1px 25px 5px rgba(13, 15, 54, 0.3);
 }
 
-#content .content-area .content-header .admin-info .info span {
+#content .content-area .content-header .authors-info .info span {
 	font-family: monospace;
 }
 
-#content .content-area .content-header .admin-info .info a {
+#content .content-area .content-header .authors-info .info a {
 	font-weight: bold;
 	font-size: 1.2rem;
 	background-clip: text;
@@ -239,7 +239,7 @@
 	);
 }
 
-#content .content-area .content-header .admin-info .info a:hover {
+#content .content-area .content-header .authors-info .info a:hover {
 	background-image: linear-gradient(
 		30deg,
 		var(--blue),
@@ -249,7 +249,7 @@
 	transform: scale(1.01);
 }
 
-#content .content-area .content-header .admin-info img {
+#content .content-area .content-header .authors-info img {
 	height: 80px;
 	width: 80px;
 	border-radius: 50%;

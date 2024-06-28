@@ -75,6 +75,14 @@
 	display: none;
 }
 
+.form_error {
+	color: red;
+	font-weight: 200;
+	font-size: 0.9rem;
+	text-align: center;
+	text-transform: capitalize;
+}
+
 @media (max-width: 950px) {
 	.toggle-visibility {
 		display: flex !important;

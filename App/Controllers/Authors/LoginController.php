@@ -45,6 +45,6 @@ class LoginController
 
     (new Config())::setSession($user);
 
-    $request->getRouter()->redirect('/manager/orders');
+    $request->getRouter()->redirect('/authors/dashboard');
   }
 }
