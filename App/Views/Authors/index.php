@@ -22,11 +22,17 @@ Generator::extendLayout('Authors/master');
 				<li>
 					<a href="#" class="active"><ion-icon name="book"></ion-icon>Posts</a>
 				</li>
+
 				<li>
 					<a href="#"><ion-icon name="people"></ion-icon>Users</a>
 				</li>
+
 				<li>
 					<a href="#"><ion-icon name="people-circle"></ion-icon>Authors</a>
+				</li>
+
+				<li>
+					<a href="#"><ion-icon name="add-circle"></ion-icon>New post</a>
 				</li>
 			</ul>
 

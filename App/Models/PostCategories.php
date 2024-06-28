@@ -2,16 +2,16 @@
 
 namespace App\Models;
 
-class CommentModel extends Model
+class PostCategories extends Model
 {
   public int $id;
-  public string $content;
   public int $post_id;
+  public int $category_id;
   public string $created_at;
   public string $updated_at;
 
   public function __construct()
   {
-    parent::__construct('comments');
+    parent::__construct('categories');
   }
 }
