@@ -74,3 +74,11 @@
 	text-align: center;
 	text-transform: capitalize;
 }
+
+.no-data {
+	text-align: center;
+	width: 100%;
+	font-weight: 500;
+	color: var(--black);
+	font-style: italic;
+}

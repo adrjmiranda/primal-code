@@ -12,6 +12,6 @@ class PostCategories extends Model
 
   public function __construct()
   {
-    parent::__construct('categories');
+    parent::__construct('post_categories');
   }
 }

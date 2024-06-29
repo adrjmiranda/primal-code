@@ -1,0 +1,10 @@
+<thead>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Date</th>
+    <th>Comments</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+</thead>
