@@ -11,15 +11,15 @@
 
     <ul class="menu">
       <li>
-        <a href="#" class="active"><ion-icon name="book"></ion-icon>Posts</a>
+        <a href="/authors/dashboard/posts" class="active"><ion-icon name="book"></ion-icon>Posts</a>
       </li>
 
       <li>
-        <a href="#"><ion-icon name="people"></ion-icon>Users</a>
+        <a href="/authors/dashboard/users"><ion-icon name="people"></ion-icon>Users</a>
       </li>
 
       <li>
-        <a href="#"><ion-icon name="people-circle"></ion-icon>Authors</a>
+        <a href="/authors/dashboard/authors"><ion-icon name="people-circle"></ion-icon>Authors</a>
       </li>
 
       <li>

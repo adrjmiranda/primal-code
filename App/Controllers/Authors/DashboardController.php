@@ -25,12 +25,12 @@ class DashboardController
 
       case 'users':
         $entity = new UserModel;
-        $fields = ['id', 'name', 'email', 'updated_at'];
+        $fields = ['id', 'name', 'email', 'created_at'];
         break;
 
       case 'authors':
         $entity = new AuthorModel;
-        $fields = ['id', 'name', 'email', 'updated_at'];
+        $fields = ['id', 'name', 'email', 'created_at'];
         break;
     }
 
@@ -44,6 +44,6 @@ class DashboardController
     $session = $params['session'] ?? '';
     $data['data'] = $this->getSessionContent($session);
 
-    return Generator::render('Authors/posts', $data);
+    return Generator::render("Authors/$session", $data);
   }
 }
