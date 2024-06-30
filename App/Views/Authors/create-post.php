@@ -22,9 +22,25 @@ Generator::extendLayout('Authors/master');
 		<div class="content-data">
 			<div class="inner">
 				<form action="#" id="editor-form">
-					<textarea name="post" id="editor">
-								Welcome to TinyMCE!
-							</textarea>
+					<div class="input-field">
+						<label for="post-image">Choose an image for the post:</label>
+						<input type="file" name="post-image" id="post-image">
+					</div>
+
+					<div class="input-field">
+						<label for="title">Title</label>
+						<input type="text" name="title" id="title" placeholder="Post title">
+					</div>
+
+					<div class="input-field">
+						<label for="slug">Slug:</label>
+						<input type="text" name="slug" id="slug" placeholder="Choose a unique key">
+					</div>
+
+					<div class="input-field" id="editor-field">
+						<label for="editor">Post content:</label>
+						<textarea name="post" id="editor" placeholder="Post content..."></textarea>
+					</div>
 
 					<button type="submit" class="btn btn-primary">Create</button>
 				</form>
