@@ -75,6 +75,30 @@ class Model
     }
   }
 
+  public function findSpecificFields(array $fields, int $limit = 0): ?array
+  {
+    $query = "SELECT ";
+
+    foreach ($fields as $column) {
+      $query .= $column . ', ';
+    }
+    $query = substr($query, 0, -2);
+    $query .= " FROM $this->table";
+
+    if ($limit > 0) {
+      $query .= " LIMIT $limit";
+    }
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute();
+
+      return $stmt->fetchAll();
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
   public function store(): ?bool
   {
     $data = (array) $this;
