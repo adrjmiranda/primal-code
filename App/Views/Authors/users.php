@@ -12,24 +12,10 @@ Generator::extendLayout('Authors/master');
 	<!-- Content Area -->
 
 	<div class="content-area">
-		<div class="content-header">
-			<div class="inner">
-				<button type="button" id="toggle-menu-btn" data-active="true">
-					<ion-icon name="menu"></ion-icon>
-				</button>
 
-				<h1 class="session-title">Posts</h1>
+		<!-- Content Header -->
 
-				<div class="authors-info">
-					<div class="info">
-						<span>Welcome!</span>
-						<a href="#">Adriano Miranda</a>
-					</div>
-
-					<img src="<?= $base_url ?>/img/avatar.png" alt="Adriano Miranda" />
-				</div>
-			</div>
-		</div>
+		<?php require_once __DIR__ . '/partials/content-header.php'; ?>
 
 		<!-- Search Options -->
 

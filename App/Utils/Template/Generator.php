@@ -38,6 +38,7 @@ class Generator
   {
     $templatePath = Generator::getTemplateFile($template);
     $data['base_url'] = Generator::getBaseUrl();
+    $data['tinymce_api_key'] = $_ENV['TINYMCE_API_KEY'] ?? '';
 
     ob_start();
 

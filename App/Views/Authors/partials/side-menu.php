@@ -23,7 +23,7 @@
       </li>
 
       <li>
-        <a href="#"><ion-icon name="add-circle"></ion-icon>New post</a>
+        <a href="/authors/post/create"><ion-icon name="add-circle"></ion-icon>New post</a>
       </li>
     </ul>
 

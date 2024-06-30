@@ -44,6 +44,9 @@ class DashboardController
     $session = $params['session'] ?? '';
     $data['data'] = $this->getSessionContent($session);
 
+    $sessionTitle = str_replace('-', ' ', $session);
+    $data['session_title'] = $sessionTitle;
+
     return Generator::render("Authors/$session", $data);
   }
 }
