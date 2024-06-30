@@ -13,26 +13,28 @@ class DashboardController
 {
   private function getSessionContent(string $session): array
   {
-    $entity = null;
     $data = [];
+    $fields = [];
+    $limit = 0;
 
     switch ($session) {
       case 'posts':
         $entity = new PostModel;
+        $fields = ['id', 'title', 'number_of_comments', 'status', 'updated_at'];
         break;
 
       case 'users':
         $entity = new UserModel;
+        $fields = ['id', 'name', 'email', 'updated_at'];
         break;
 
       case 'authors':
         $entity = new AuthorModel;
+        $fields = ['id', 'name', 'email', 'updated_at'];
         break;
     }
 
-    if (!is_null($entity)) {
-      $data = $entity->all();
-    }
+    $data = $entity->findSpecificFields($fields, $limit);
 
     return $data;
   }
