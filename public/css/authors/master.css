@@ -1,6 +1,7 @@
 @import 'global.css';
 @import 'auth.css';
 @import 'posts.css';
+@import 'new-post.css';
 
 #content {
 	position: relative;

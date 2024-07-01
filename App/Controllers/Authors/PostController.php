@@ -7,7 +7,7 @@ use App\Utils\Template\Generator;
 
 class PostController
 {
-  public function create(Request $request, array $params)
+  public function create(Request $request, array $params, array $data = [])
   {
     $data['session_title'] = 'Create post';
 
@@ -15,8 +15,14 @@ class PostController
   }
 
   // TODO: implements
-  public function store()
+  public function store(Request $request, array $params)
   {
+    $postData = $request->getPostVars();
+
+    echo '<pre>';
+    var_dump($postData);
+    echo '</pre>';
+    exit;
   }
 
   // TODO: implements

@@ -11,6 +11,7 @@ class Request
   private HttpMmethodsEnabled $httpMethod;
   private array $postVars;
   private array $queryParams;
+  private array $files;
   private Router $router;
 
   public function __construct(Router $router)
@@ -22,6 +23,7 @@ class Request
     $this->headers = getallheaders();
     $this->postVars = $_POST ?? [];
     $this->queryParams = $_GET ?? [];
+    $this->files = $_FILES ?? [];
   }
 
   public function getRouter(): Router
@@ -80,4 +82,8 @@ class Request
     return $this->queryParams;
   }
 
+  public function getFiles(): array
+  {
+    return $this->files;
+  }
 }
