@@ -82,8 +82,8 @@ class Request
     return $this->queryParams;
   }
 
-  public function getFiles(): array
+  public function getFile(string $key): array
   {
-    return $this->files;
+    return $this->files[$key];
   }
 }

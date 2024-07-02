@@ -26,28 +26,31 @@ Generator::extendLayout('Authors/master');
 						<label for="image">Choose an image:</label>
 						<input type="file" name="image" id="image" max="1">
 
-						<p class="form_error"><?= !empty($image_error) ? $image_error : '' ?></p>
+						<p class="form_error"><?= isset($errors['image']) ? $errors['image'] : '' ?></p>
 					</div>
 
 					<div class="input-field">
 						<label for="title">Title</label>
-						<input type="text" name="title" id="title" placeholder="Post title">
+						<input type="text" name="title" id="title" placeholder="Post title"
+							value="<?= isset($data['title']) ? $data['title'] : '' ?>">
 
-						<p class="form_error"><?= !empty($title_error) ? $title_error : '' ?></p>
+						<p class="form_error"><?= isset($errors['title']) ? $errors['title'] : '' ?></p>
 					</div>
 
 					<div class="input-field">
 						<label for="slug">Slug:</label>
-						<input type="text" name="slug" id="slug" placeholder="Choose a unique key">
+						<input type="text" name="slug" id="slug" placeholder="Choose a unique key"
+							value="<?= isset($data['slug']) ? $data['slug'] : '' ?>">
 
-						<p class="form_error"><?= !empty($slug_error) ? $slug_error : '' ?></p>
+						<p class="form_error"><?= isset($errors['slug']) ? $errors['slug'] : '' ?></p>
 					</div>
 
 					<div class="input-field" id="editor-field">
 						<label for="editor">Post content:</label>
-						<textarea name="content" id="editor" placeholder="Post content..."></textarea>
+						<textarea name="content" id="editor"
+							placeholder="Post content..."><?= isset($data['content']) ? $data['content'] : '' ?></textarea>
 
-						<p class="form_error"><?= !empty($content_error) ? $content_error : '' ?></p>
+						<p class="form_error"><?= isset($errors['content']) ? $errors['content'] : '' ?></p>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Create</button>
@@ -68,7 +71,7 @@ Generator::extendLayout('Authors/master');
 		content_css: '<?= $base_url ?>/css/authors/editor.css',
 		height: 'calc(100% - 4rem)',
 		plugins:
-			'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+			'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
 		toolbar:
 			'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
 		tinycomments_mode: 'embedded',
