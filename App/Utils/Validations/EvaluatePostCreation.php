@@ -25,16 +25,16 @@ class EvaluatePostCreation
 
   private function isValidTitle(string $title): bool
   {
-    $pattern = '/^[A-Za-zÀ-ÖØ-öø-ÿ0-9\s]{1,255}$/';
+    $pattern = '/^[A-Za-zÀ-ÖØ-öø-ÿ0-9-\s]{1,255}$/';
     return preg_match($pattern, $title);
   }
 
-  private function slugAlreadyExists(string $slug): bool
+  private function slugAlreadyExists(string $slug, int $id = 0): bool
   {
     $entity = new PostModel;
     $entityWithSameSlug = $entity->findOne('slug', $slug);
 
-    return ($entityWithSameSlug instanceof PostModel);
+    return ($entityWithSameSlug instanceof PostModel) && $entityWithSameSlug->id !== $id;
   }
 
   private function isValidSlug(string $slug): bool
@@ -49,7 +49,7 @@ class EvaluatePostCreation
     return preg_match($pattern, $content);
   }
 
-  public function getErrors(array $data): array
+  public function getErrors(array $data, int $id = 0): array
   {
     $errors = [];
 
@@ -85,8 +85,8 @@ class EvaluatePostCreation
 
         case 'slug':
 
-          if ($this->slugAlreadyExists($value)) {
-            $errors['slug'] = 'This slug is already registered for another post';
+          if ($this->slugAlreadyExists($value, $id)) {
+            $errors['slug'] = 'This slug is already registered for another post ANOTHER';
           } else if (!$this->isValidSlug($value)) {
             $errors['slug'] = 'The slug must be just text without accents or spaces (hyphens are allowed)';
           }

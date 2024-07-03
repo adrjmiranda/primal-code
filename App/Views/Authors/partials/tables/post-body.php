@@ -11,7 +11,7 @@
       <td>
         <ul>
           <li>
-            <a href="#" class="edit-btn">
+            <a href="/authors/post/edit/<?= $post->id ?>" class="edit-btn">
               <ion-icon name="create-outline"></ion-icon>
             </a>
           </li>
