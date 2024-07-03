@@ -19,7 +19,7 @@ Generator::extendLayout('Authors/master');
 
 		<!-- Content Data -->
 
-		<div class="content-data">
+		<div class="content-data" id="post-form">
 			<div class="inner">
 				<form action="/authors/post/create" id="editor-form" method="post" enctype="multipart/form-data">
 					<p class="form_error"><?= isset($errors['create_error']) ? $errors['create_error'] : '' ?></p>
@@ -31,11 +31,19 @@ Generator::extendLayout('Authors/master');
 					</div>
 
 					<div class="input-field">
-						<label for="title">Title</label>
+						<label for="title">Title:</label>
 						<input type="text" name="title" id="title" placeholder="Post title"
 							value="<?= isset($data['title']) ? $data['title'] : '' ?>">
 
 						<p class="form_error"><?= isset($errors['title']) ? $errors['title'] : '' ?></p>
+					</div>
+
+					<div class="input-field">
+						<label for="description">Description:</label>
+						<textarea name="description" id="description"
+							placeholder="Post description..."><?= isset($data['description']) ? $data['description'] : '' ?></textarea>
+
+						<p class="form_error"><?= isset($errors['description']) ? $errors['description'] : '' ?></p>
 					</div>
 
 					<div class="input-field">

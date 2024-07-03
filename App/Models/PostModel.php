@@ -6,6 +6,7 @@ class PostModel extends Model
 {
   public int $id;
   public string $title;
+  public string $description;
   public string $content;
   public string $slug;
   public int $number_of_comments;

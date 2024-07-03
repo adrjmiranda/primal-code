@@ -6,7 +6,7 @@ use App\Models\PostModel;
 
 class EvaluatePostCreation
 {
-  private const MAX_IMAGE_SIZE = 4; // in MB
+  private const MAX_IMAGE_SIZE = 6; // in MB
 
   private array $extensionsAllowedForImages = [
     'image/jpeg',
@@ -27,6 +27,12 @@ class EvaluatePostCreation
   {
     $pattern = '/^[A-Za-zÀ-ÖØ-öø-ÿ0-9-\s]{1,255}$/';
     return preg_match($pattern, $title);
+  }
+
+  private function isValidDescription(string $description): bool
+  {
+    $pattern = '/^.{1,255}$/s';
+    return preg_match($pattern, $description);
   }
 
   private function slugAlreadyExists(string $slug, int $id = 0): bool
@@ -71,6 +77,14 @@ class EvaluatePostCreation
 
           if (!$this->isValidTitle($value)) {
             $errors['title'] = 'The title must be valid text';
+          }
+
+          break;
+
+        case 'description':
+
+          if (!$this->isValidTitle($value)) {
+            $errors['description'] = 'The description must be valid text';
           }
 
           break;

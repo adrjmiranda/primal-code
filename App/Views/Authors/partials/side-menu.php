@@ -11,19 +11,23 @@
 
     <ul class="menu">
       <li>
-        <a href="/authors/dashboard/posts" class="active"><ion-icon name="book"></ion-icon>Posts</a>
+        <a href="/authors/dashboard/posts" class="<?= $active_session === 'posts' ? 'active' : '' ?>"><ion-icon
+            name="book"></ion-icon>Posts</a>
       </li>
 
       <li>
-        <a href="/authors/dashboard/users"><ion-icon name="people"></ion-icon>Users</a>
+        <a href="/authors/dashboard/users" class="<?= $active_session === 'users' ? 'active' : '' ?>"><ion-icon
+            name="people"></ion-icon>Users</a>
       </li>
 
       <li>
-        <a href="/authors/dashboard/authors"><ion-icon name="people-circle"></ion-icon>Authors</a>
+        <a href="/authors/dashboard/authors" class="<?= $active_session === 'authors' ? 'active' : '' ?>"><ion-icon
+            name="people-circle"></ion-icon>Authors</a>
       </li>
 
       <li>
-        <a href="/authors/post/create"><ion-icon name="add-circle"></ion-icon>New post</a>
+        <a href="/authors/post/create" class="<?= $active_session === 'create-post' ? 'active' : '' ?>"><ion-icon
+            name="add-circle"></ion-icon>New post</a>
       </li>
     </ul>
 

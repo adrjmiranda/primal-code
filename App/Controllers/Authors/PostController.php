@@ -13,6 +13,7 @@ class PostController
   public function create(Request $request, array $params, array $data = [])
   {
     $data['session_title'] = 'Create post';
+    $data['active_session'] = 'create-post';
 
     return Generator::render("Authors/create-post", $data);
   }
@@ -38,12 +39,14 @@ class PostController
     $image = $request->getFile('image');
 
     $title = $postData['title'] ?? '';
+    $description = $postData['description'] ?? '';
     $slug = $postData['slug'] ?? '';
     $content = $postData['content'] ?? '';
 
     $dataToBeEvaluated = [
       'image' => $image,
       'title' => $title,
+      'description' => $description,
       'slug' => $slug,
       'content' => $content,
     ];
@@ -79,6 +82,7 @@ class PostController
 
     $entity->image_url = $imageName;
     $entity->title = $title;
+    $entity->description = $description;
     $entity->slug = $slug;
     $entity->content = $content;
     $entity->author_id = $author_id;
@@ -102,9 +106,12 @@ class PostController
     if ($post instanceof PostModel) {
       $data['id'] = $post->id;
       $data['title'] = $post->title;
+      $data['description'] = $post->description;
       $data['slug'] = $post->slug;
       $data['content'] = $post->content;
       $data['session_title'] = 'Edit post';
+
+      $data['active_session'] = 'posts';
 
       return Generator::render("Authors/edit-post", $data);
     } else {
@@ -125,11 +132,13 @@ class PostController
       $image = $request->getFile('image');
 
       $title = $postData['title'] ?? '';
+      $description = $postData['description'] ?? '';
       $slug = $postData['slug'] ?? '';
       $content = $postData['content'] ?? '';
 
       $dataToBeEvaluated = [
         'title' => $title,
+        'description' => $description,
         'slug' => $slug,
         'content' => $content
       ];
@@ -181,6 +190,7 @@ class PostController
       $author_id = $_SESSION[SessionKeyNames::Authors->value]['id'];
 
       $post->title = $title;
+      $post->description = $description;
       $post->slug = $slug;
       $post->content = $content;
       $post->author_id = $author_id;

@@ -82,3 +82,7 @@
 	color: var(--black);
 	font-style: italic;
 }
+
+#post-form .inner {
+	height: 150vh;
+}

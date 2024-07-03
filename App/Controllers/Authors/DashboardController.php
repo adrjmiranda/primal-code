@@ -46,6 +46,7 @@ class DashboardController
 
     $sessionTitle = str_replace('-', ' ', $session);
     $data['session_title'] = $sessionTitle;
+    $data['active_session'] = $session;
 
     return Generator::render("Authors/$session", $data);
   }
