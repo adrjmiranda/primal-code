@@ -10,6 +10,6 @@ composer.phar
 # Unnecessary files
 **/Cache
 
-**/img/posts
-**/img/users
-**/img/authors
+**/img/posts/*
+**/img/users/*
+**/img/authors/*

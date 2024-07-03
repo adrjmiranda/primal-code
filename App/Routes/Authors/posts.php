@@ -1,5 +1,7 @@
 <?php
 
+// Create post
+
 $router->get(
   '/authors/post/create',
   'App\\Controllers\\Authors\\PostController@create',
@@ -12,6 +14,8 @@ $router->post(
   ['App\\Http\\Middlewares\\Authors\\RequireLogin']
 );
 
+// Edit post
+
 $router->get(
   '/authors/post/edit/{id:%d}',
   'App\\Controllers\\Authors\\PostController@edit',
@@ -21,5 +25,13 @@ $router->get(
 $router->post(
   '/authors/post/update',
   'App\\Controllers\\Authors\\PostController@update',
+  ['App\\Http\\Middlewares\\Authors\\RequireLogin']
+);
+
+// Change visibility
+
+$router->get(
+  '/authors/post/visibility/{id:%d}',
+  'App\\Controllers\\Authors\\PostController@changeVisibility',
   ['App\\Http\\Middlewares\\Authors\\RequireLogin']
 );

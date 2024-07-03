@@ -200,6 +200,22 @@ class PostController
     }
   }
 
+  public function changeVisibility(Request $request, array $params)
+  {
+    $id = (int) ($params['id'] ?? '');
+
+    $post = (new PostModel)->findOne('id', $id) ?? null;
+
+    if ($post instanceof PostModel) {
+      $post->status = $post->status === 'hidden' ? 'visible' : 'hidden';
+      $post->update();
+
+      $request->getRouter()->redirect('/authors/dashboard/posts');
+    } else {
+      $request->getRouter()->redirect('/authors/dashboard/posts');
+    }
+  }
+
   // TODO: implements
   public function remove(Request $request, array $params)
   {

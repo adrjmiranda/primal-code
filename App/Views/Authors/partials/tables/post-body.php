@@ -16,8 +16,15 @@
             </a>
           </li>
           <li>
-            <a href="#" class="toggle-visibility-btn">
-              <ion-icon name="eye-off-outline"></ion-icon>
+            <a href="/authors/post/visibility/<?= $post->id ?>" class="toggle-visibility-btn">
+
+              <?php if ($post->status === 'hidden'): ?>
+                <ion-icon name="eye-outline"></ion-icon>
+              <?php endif; ?>
+
+              <?php if ($post->status === 'visible'): ?>
+                <ion-icon name="eye-off-outline"></ion-icon>
+              <?php endif; ?>
             </a>
           </li>
           <li>

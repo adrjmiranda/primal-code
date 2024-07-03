@@ -9,7 +9,7 @@ class PostModel extends Model
   public string $content;
   public string $slug;
   public int $number_of_comments;
-  public string $status;
+  public string $status; // visible or hidden
   public int $author_id;
   public string $image_url;
   public string $created_at;
