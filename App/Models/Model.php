@@ -17,7 +17,7 @@ class Model
     $this->pdo = Database::getConnection();
   }
 
-  private function hadleException(string $message, int $erroCode = 1)
+  private function hadleException(string $message, mixed $erroCode)
   {
     // TODO: In Development
     var_dump($message);

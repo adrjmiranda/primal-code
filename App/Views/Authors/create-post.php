@@ -22,6 +22,7 @@ Generator::extendLayout('Authors/master');
 		<div class="content-data">
 			<div class="inner">
 				<form action="/authors/post/create" id="editor-form" method="post" enctype="multipart/form-data">
+					<p class="form_error"><?= isset($errors['create_error']) ? $errors['create_error'] : '' ?></p>
 					<div class="input-field">
 						<label for="image">Choose an image:</label>
 						<input type="file" name="image" id="image" max="1">
