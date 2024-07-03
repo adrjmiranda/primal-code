@@ -12,7 +12,7 @@ class PostController
   {
     $slug = $params['slug'] ?? '';
 
-    $post = (new PostModel)->findOne('slug', $slug);
+    $post = (new PostModel)->findOne('slug', $slug) ?? null;
 
     if ($post instanceof PostModel) {
       $data['post'] = $post;

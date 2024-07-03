@@ -112,7 +112,9 @@
 
 #post .content .text-content img {
 	max-height: 550px;
-	margin: 0 2rem;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
 	border-radius: 0.5rem;
 	object-fit: cover;
 	filter: drop-shadow(1px 1px 15px #fff2);

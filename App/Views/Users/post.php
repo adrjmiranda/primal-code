@@ -31,7 +31,6 @@
 
 				<ul>
 					<li><a href="#">Home</a></li>
-					<!-- <li><a href="#">Categories</a></li> -->
 					<li><a href="#">About</a></li>
 					<li><a href="#">Contact</a></li>
 					<li><a href="#" id="login-btn">Login</a></li>
@@ -52,88 +51,17 @@
 
 			<div class="content">
 				<div class="img">
-					<img src="<?= $base_url ?>/img/post_1.jpg" alt="..." />
+					<img src="<?= $base_url ?>/img/posts/<?= $post->image_url ?>" alt="<?= $post->title ?>" />
 				</div>
 
 				<div class="info">
-					<h1 class="title">Great technology milestone</h1>
-					<p class="date">October 6th, 1996</p>
-					<p class="description">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit.
-						Voluptates possimus rerum explicabo saepe libero molestiae aperiam
-						ipsum earum deleniti nisi temporibus odit assumenda corrupti, quas
-						aliquid magni, fugit est repellendus?
-					</p>
+					<h1 class="title"><?= $post->title ?></h1>
+					<p class="date"><?= (new DateTime($post->updated_at))->format('F jS, Y') ?></p>
+					<p class="description"><?= $post->description ?></p>
 				</div>
 
 				<div class="text-content">
-					<h2>Premium designed icons</h2>
-
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-						fugiat quas quam natus neque aliquam modi at labore minus, totam
-						nesciunt distinctio amet, eos voluptatibus commodi possimus
-						adipisci quia molestias!
-					</p>
-
-					<img src="<?= $base_url ?>/img/post_14.jpg" alt="..." />
-
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-						fugiat quas quam natus neque aliquam modi at labore minus, totam
-						nesciunt distinctio amet, eos voluptatibus commodi possimus
-						adipisci quia molestias! Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Quo aperiam ipsum sit et ad placeat aliquid
-						saepe odio, voluptatem molestias facere repudiandae, culpa
-						repellat eum. Temporibus minima accusantium placeat fuga. Lorem
-						ipsum dolor sit amet consectetur adipisicing elit. Amet nostrum
-						ducimus, ipsa aperiam est similique aut, vero saepe accusamus
-						excepturi quidem nam non unde harum quas! Molestiae eveniet
-						laudantium vel!
-					</p>
-
-					<h2>Completely open source</h2>
-
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-						fugiat quas quam natus neque aliquam modi at labore minus, totam
-						nesciunt distinctio amet, eos voluptatibus commodi possimus
-						adipisci quia molestias! Lorem, ipsum dolor sit amet consectetur
-						adipisicing elit. Quam vitae voluptatibus eius qui architecto
-						magni assumenda nobis ad nemo quas, porro adipisci nihil, ipsum
-						obcaecati molestiae numquam corporis. Distinctio, voluptates?
-					</p>
-
-					<ul>
-						<li>Support</li>
-						<li>Android</li>
-						<li>Completely</li>
-					</ul>
-
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-						fugiat quas quam natus neque aliquam modi at labore minus, totam
-						nesciunt distinctio amet, eos voluptatibus commodi possimus
-						adipisci quia molestias! Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Facere, aperiam! Dolorem veritatis aliquam,
-						atque adipisci reprehenderit cum doloribus incidunt, eos ut totam
-						iure corporis, minima perspiciatis mollitia fugit reiciendis
-						labore? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Quasi debitis asperiores ipsum neque labore ipsam minima cum
-						excepturi reprehenderit nihil voluptates fugiat sunt, consectetur
-						ab. Aspernatur totam ullam eos officiis? Lorem ipsum dolor sit
-						amet, consectetur adipisicing elit. Provident eveniet a beatae
-						quaerat, quasi praesentium maxime temporibus officiis molestias
-						voluptatum deleniti illum dignissimos id, aspernatur mollitia
-						nostrum doloribus hic adipisci.
-					</p>
-
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-						fugiat quas quam natus neque aliquam modi at labore minus, totam
-						nesciunt distinctio amet, eos voluptatibus commodi possimus
-						adipisci quia molestias!
-					</p>
+					<p class="description"><?= $post->content ?></p>
 				</div>
 			</div>
 
