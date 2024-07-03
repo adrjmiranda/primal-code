@@ -216,8 +216,18 @@ class PostController
     }
   }
 
-  // TODO: implements
   public function remove(Request $request, array $params)
   {
+    $id = (int) ($params['id'] ?? '');
+
+    $post = (new PostModel)->findOne('id', $id) ?? null;
+
+    if ($post instanceof PostModel) {
+      $post->delete();
+
+      $request->getRouter()->redirect('/authors/dashboard/posts');
+    } else {
+      $request->getRouter()->redirect('/authors/dashboard/posts');
+    }
   }
 }

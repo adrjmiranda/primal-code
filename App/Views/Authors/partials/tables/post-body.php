@@ -17,7 +17,6 @@
           </li>
           <li>
             <a href="/authors/post/visibility/<?= $post->id ?>" class="toggle-visibility-btn">
-
               <?php if ($post->status === 'hidden'): ?>
                 <ion-icon name="eye-outline"></ion-icon>
               <?php endif; ?>
@@ -28,7 +27,7 @@
             </a>
           </li>
           <li>
-            <a href="#" class="remove-btn">
+            <a href="/authors/post/remove/<?= $post->id ?>" class="remove-btn">
               <ion-icon name="trash-outline"></ion-icon>
             </a>
           </li>

@@ -35,3 +35,11 @@ $router->get(
   'App\\Controllers\\Authors\\PostController@changeVisibility',
   ['App\\Http\\Middlewares\\Authors\\RequireLogin']
 );
+
+// Remove post
+
+$router->get(
+  '/authors/post/remove/{id:%d}',
+  'App\\Controllers\\Authors\\PostController@remove',
+  ['App\\Http\\Middlewares\\Authors\\RequireLogin']
+);
