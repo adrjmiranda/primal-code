@@ -60,27 +60,7 @@ Generator::extendLayout('Users/master');
 
 <div id="category-bar">
   <div class="container">
-    <ul class="categories-menu">
-      <button class="left-btn">
-        <ion-icon name="caret-back-outline"></ion-icon>
-      </button>
-      <button class="right-btn">
-        <ion-icon name="caret-forward-outline"></ion-icon>
-      </button>
-      <li><a href="#">All</a></li>
-      <li><a href="#">Web Development</a></li>
-      <li><a href="#">Programming</a></li>
-      <li><a href="#">Technology</a></li>
-      <li><a href="#">Software Development</a></li>
-      <li><a href="#">Mobile</a></li>
-      <li><a href="#">Database</a></li>
-      <li><a href="#">Career in Technology</a></li>
-      <li><a href="#">Information Security</a></li>
-      <li><a href="#">Data Analysis</a></li>
-      <li><a href="#">Tutorials and Guides</a></li>
-      <li><a href="#">News and Trends</a></li>
-      <li><a href="#">Open Source</a></li>
-    </ul>
+    <?php require __DIR__ . '/partials/categories-menu.php'; ?>
   </div>
 </div>
 
