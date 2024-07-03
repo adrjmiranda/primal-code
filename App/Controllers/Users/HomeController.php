@@ -10,9 +10,11 @@ class HomeController
 {
   public function index(Request $request, array $params)
   {
-    $posts = (new PostModel)->all();
+    $posts = (new PostModel)->findSpecificFields(['title', 'description', 'slug', 'image_url', 'updated_at']);
+    $featuredPost = (new PostModel)->findLast();
 
     $data['posts'] = $posts;
+    $data['featured_post'] = $featuredPost;
 
     return Generator::render('Users/index', $data);
   }

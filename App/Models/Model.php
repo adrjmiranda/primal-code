@@ -99,6 +99,20 @@ class Model
     }
   }
 
+  public function findLast()
+  {
+    $query = "SELECT * FROM posts ORDER BY id DESC LIMIT 1";
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute();
+
+      return $stmt->fetchObject(get_called_class());
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
   public function store(): ?bool
   {
     $data = (array) $this;

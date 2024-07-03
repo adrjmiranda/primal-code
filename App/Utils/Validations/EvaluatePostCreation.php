@@ -83,7 +83,7 @@ class EvaluatePostCreation
 
         case 'description':
 
-          if (!$this->isValidTitle($value)) {
+          if (!$this->isValidDescription($value)) {
             $errors['description'] = 'The description must be valid text';
           }
 

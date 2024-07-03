@@ -12,7 +12,7 @@ Generator::extendLayout('Users/master');
 
   <nav id="navbar">
     <div class="container">
-      <a href="#" class="logo">
+      <a href="/" class="logo">
         <img src="<?= $base_url ?>/img/code.png" alt="Primal Code Logo" loading="eager" />Primal Code
       </a>
 
@@ -84,241 +84,41 @@ Generator::extendLayout('Users/master');
   </div>
 </div>
 
-<main id="posts-container">
-  <div class="container">
-    <!-- Featured Post -->
+<?php if (!empty($posts)): ?>
+  <main id="posts-container">
+    <div class="container">
+      <!-- Featured Post -->
 
-    <div id="featured-post">
-      <div class="img">
-        <img src="<?= $base_url ?>/img/post_14.jpg" alt="..." loading="lazy" />
-      </div>
+      <?php require __DIR__ . '/partials/featured-post.php'; ?>
 
-      <div class="info">
-        <h2 class="title">
-          Great technology
-          milestonecccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
-        </h2>
-        <span class="date">October 6th, 1981</span>
-        <p class="description">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur
-          velit iusto debitis ipsa ipsum similique
-          autem.weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-        </p>
-      </div>
+      <!-- Posts -->
 
-      <a href="#" class="btn-read">Read<ion-icon name="book-outline"></ion-icon></a>
-    </div>
-
-    <!-- Posts -->
-
-    <div id="posts">
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_1.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">
-            Great technology milestonesdddddddddddddddddddddddddd
-          </h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique
-            autem.dssssssssssssssssssssssssssssssssssssssssssssssssssssssssrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_2.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_3.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_4.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_5.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_6.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_7.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_8.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_9.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_10.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
-      </div>
-
-      <div class="post-card">
-        <div class="img">
-          <img src="<?= $base_url ?>/img/post_11.jpg" alt="..." loading="lazy" />
-        </div>
-
-        <div class="info">
-          <h3 class="title">Great technology milestone</h3>
-          <span class="date">October 6th, 1981</span>
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Pariatur velit iusto debitis ipsa ipsum similique autem.
-          </p>
-        </div>
-
-        <a href="#" class="post-link"><ion-icon name="book-outline"></ion-icon>Read</a>
+      <div id="posts">
+        <?php foreach ($posts as $post): ?>
+          <?php require __DIR__ . '/partials/post-card.php'; ?>
+        <?php endforeach; ?>
       </div>
     </div>
-  </div>
-</main>
+  </main>
 
-<!-- Pagination Bar -->
+  <!-- Pagination Bar -->
 
-<div id="pagination-bar">
-  <div class="container">
-    <ul>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">...</a></li>
-      <li><a href="#">22</a></li>
-      <li><a href="#">21</a></li>
-    </ul>
+  <div id="pagination-bar">
+    <div class="container">
+      <ul>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#">22</a></li>
+        <li><a href="#">21</a></li>
+      </ul>
+    </div>
   </div>
-</div>
+
+<?php else: ?>
+  <p style="font-style: italic; font-weight: bold; text-align: center; margin: 4rem 0">No posts published...</p>
+<?php endif; ?>
 
 <!-- Footer -->
 
