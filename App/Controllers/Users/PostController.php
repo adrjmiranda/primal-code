@@ -34,9 +34,9 @@ class PostController
 
     $quantityPerPage = (new PostModel)->getQuantityPerPage($itemsPerPage);
     $numberOfPages = (new PostModel)->getNumberOfPages($quantityPerPage);
-    $posts = (new PostModel)->getPage(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', BasicConditions::Equal, 'visible', 'DESC', $pageNubmer, $quantityPerPage);
+    $posts = (new PostModel)->getPage(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', '=', 'visible', 'DESC', $pageNubmer, $quantityPerPage);
 
-    $featuredPost = (new PostModel)->findLastAndCondition('status', BasicConditions::Equal, 'visible');
+    $featuredPost = (new PostModel)->findLastAndCondition('status', '=', 'visible');
 
     $data['categories'] = $categories;
     $data['posts'] = $posts;

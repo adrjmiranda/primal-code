@@ -228,20 +228,26 @@ class Router
         $requestUri = str_replace($uri, '', $requestUri);
         $varsReceived = $this->getUrlPartContents($requestUri);
 
+        $fields = [];
+
+        $index = 0;
         foreach ($varsPatterns as $value) {
           $pattern = Router::VAR_PATTERN;
 
           preg_match_all($pattern, $value, $matches);
 
-          $fields = $matches[1];
+          $fields[] = $matches[1][0];
+          $index++;
+        }
 
-          if (count($varsReceived) > count($fields)) {
-            return [
-              'error' => "Route not found",
-              'code' => 404
-            ];
-          }
+        if (count($varsReceived) > count($fields)) {
+          return [
+            'error' => "Route not found",
+            'code' => 404
+          ];
+        }
 
+        if (!empty($fields)) {
           for ($i = 0; $i < count($fields); $i++) {
             $varName = trim(explode(':', $fields[$i])[0]);
             $patternKey = trim(explode(':', $fields[$i])[1]);

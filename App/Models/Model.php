@@ -7,15 +7,6 @@ use App\Settings\Connection\Database;
 use PDOException;
 use Exception;
 
-enum BasicConditions: string
-{
-  case Equal = '=';
-  case BiggerThen = '>';
-  case LessThan = '<';
-  case BiggerOrEqual = '>=';
-  case LessOrEqual = '<=';
-}
-
 class Model
 {
   private PDO $pdo;
@@ -109,7 +100,7 @@ class Model
     }
   }
 
-  public function findSpecificFieldsAndCondition(array $fields, string $specificColumn, BasicConditions $condition, mixed $specificValue, string $orderBy = 'ASC', int $limit = 0, int $offset = 0): ?array
+  public function findSpecificFieldsAndCondition(array $fields, string $specificColumn, string $condition, mixed $specificValue, string $orderBy = 'ASC', int $limit = 0, int $offset = 0): ?array
   {
     $query = "SELECT ";
 
@@ -119,7 +110,7 @@ class Model
     $query = substr($query, 0, -2);
     $query .= " FROM $this->table";
 
-    $query .= " WHERE $specificColumn $condition->value :$specificColumn ORDER BY id $orderBy";
+    $query .= " WHERE $specificColumn $condition :$specificColumn ORDER BY id $orderBy";
 
     if ($limit > 0) {
       $query .= " LIMIT $limit";
@@ -154,11 +145,11 @@ class Model
     }
   }
 
-  public function findLastAndCondition(string $specificColumn, BasicConditions $condition, mixed $specificValue)
+  public function findLastAndCondition(string $specificColumn, string $condition, mixed $specificValue)
   {
     $query = "SELECT * FROM posts WHERE";
 
-    $query .= " $specificColumn $condition->value :$specificColumn ORDER BY id DESC LIMIT 1";
+    $query .= " $specificColumn $condition :$specificColumn ORDER BY id DESC LIMIT 1";
 
     try {
       $stmt = $this->pdo->prepare($query);
@@ -185,11 +176,11 @@ class Model
     }
   }
 
-  public function findFirstAndCondition(string $specificColumn, BasicConditions $condition, mixed $specificValue)
+  public function findFirstAndCondition(string $specificColumn, string $condition, mixed $specificValue)
   {
     $query = "SELECT * FROM posts WHERE";
 
-    $query .= " $specificColumn $condition->value :$specificColumn ORDER BY id ASC LIMIT 1";
+    $query .= " $specificColumn $condition :$specificColumn ORDER BY id ASC LIMIT 1";
 
     try {
       $stmt = $this->pdo->prepare($query);
@@ -363,7 +354,7 @@ class Model
     return $numberOfPages;
   }
 
-  public function getPage(array $fields, string $specificColumn, BasicConditions $condition, mixed $specificValue, string $orderBy, int $pageNumber, int $quantityPerPage)
+  public function getPage(array $fields, string $specificColumn, string $condition, mixed $specificValue, string $orderBy, int $pageNumber, int $quantityPerPage)
   {
     $offset = ($pageNumber - 1) * $quantityPerPage;
 
