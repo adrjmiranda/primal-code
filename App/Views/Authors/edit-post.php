@@ -37,7 +37,7 @@ Generator::extendLayout('Authors/master');
 						<?php foreach ($categories as $category): ?>
 							<div class="check-field">
 								<label for="category-<?= $category->id ?>">
-									<input type="checkbox" name="category[]" id="category-<?= $category->id ?>" <?php foreach ($selected_categories as $selectedCategory): ?>
+									<input type="checkbox" name="categories[]" id="category-<?= $category->id ?>" value="<?= $category->id ?>" <?php foreach ($selected_categories as $selectedCategory): ?>
 										<?php if ($selectedCategory->category_id == $category->id): ?>
 											checked
 										<?php break; ?>

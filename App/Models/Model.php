@@ -256,4 +256,18 @@ class Model
       $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
+
+  public function removeSpecific(string $column, mixed $value): ?bool
+  {
+    try {
+      $query = "DELETE FROM $this->table WHERE $column = :$column";
+
+      $stmt = $this->pdo->prepare($query);
+      $stmt->bindValue(":$column", $value);
+
+      return $stmt->execute();
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
 }

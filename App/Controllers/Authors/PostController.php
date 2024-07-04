@@ -160,12 +160,14 @@ class PostController
     if ($post instanceof PostModel) {
       $image = $request->getFile('image');
 
+      $categories = $postData['categories'] ?? '';
       $title = $postData['title'] ?? '';
       $description = $postData['description'] ?? '';
       $slug = $postData['slug'] ?? '';
       $content = $postData['content'] ?? '';
 
       $dataToBeEvaluated = [
+        'categories' => $categories,
         'title' => $title,
         'description' => $description,
         'slug' => $slug,
@@ -227,6 +229,21 @@ class PostController
       // Save post data
 
       if ($post->update()) {
+        $categoryList = [];
+        $index = 0;
+        foreach ($categories as $categoryId) {
+          $postCategoryEntity = new PostCategoriesModel;
+
+          $postCategoryEntity->post_id = (int) $post->id;
+          $postCategoryEntity->category_id = (int) $categoryId;
+
+          $categoryList[$index] = $postCategoryEntity;
+          $index++;
+        }
+
+        (new PostCategoriesModel)->removeSpecific('post_id', $post->id);
+        (new PostCategoriesModel)->insertMany($categoryList);
+
         $request->getRouter()->redirect('/authors/dashboard/posts');
       } else {
         $errors['create_error'] = 'An error occurred when trying to update the post';
