@@ -139,6 +139,9 @@ class PostController
       $categories = (new CategoryModel)->all();
       $data['categories'] = $categories;
 
+      $selectedCategories = (new PostCategoriesModel)->find('post_id', $post->id);
+      $data['selected_categories'] = $selectedCategories;
+
       return Generator::render("Authors/edit-post", $data);
     } else {
       $request->getRouter()->redirect('/authors/dashboard/posts');
