@@ -23,9 +23,9 @@ class Model
     var_dump($message);
   }
 
-  public function all(int $limit = 0): ?array
+  public function all(string $orderBy = 'ASC', int $limit = 0): ?array
   {
-    $query = "SELECT * FROM $this->table";
+    $query = "SELECT * FROM $this->table ORDER BY id $orderBy";
 
     if ($limit > 0) {
       $query .= " LIMIT $limit";
@@ -41,9 +41,9 @@ class Model
     }
   }
 
-  public function find(string $column, mixed $value, int $limit = 0): ?array
+  public function find(string $column, mixed $value, string $orderBy = 'ASC', int $limit = 0): ?array
   {
-    $query = "SELECT * FROM $this->table WHERE $column = :$column";
+    $query = "SELECT * FROM $this->table WHERE $column = :$column ORDER BY id $orderBy";
 
     if ($limit > 0) {
       $query .= " LIMIT $limit";
@@ -75,7 +75,7 @@ class Model
     }
   }
 
-  public function findSpecificFields(array $fields, int $limit = 0): ?array
+  public function findSpecificFields(array $fields, string $orderBy = 'ASC', int $limit = 0): ?array
   {
     $query = "SELECT ";
 
@@ -83,7 +83,7 @@ class Model
       $query .= $column . ', ';
     }
     $query = substr($query, 0, -2);
-    $query .= " FROM $this->table";
+    $query .= " FROM $this->table ORDER BY id $orderBy";
 
     if ($limit > 0) {
       $query .= " LIMIT $limit";
@@ -99,7 +99,7 @@ class Model
     }
   }
 
-  public function findSpecificFieldsAndCondition(array $fields, string $specificColumn, mixed $specificValue, int $limit = 0): ?array
+  public function findSpecificFieldsAndCondition(array $fields, string $specificColumn, mixed $specificValue, string $orderBy = 'ASC', int $limit = 0): ?array
   {
     $query = "SELECT ";
 
@@ -109,7 +109,7 @@ class Model
     $query = substr($query, 0, -2);
     $query .= " FROM $this->table";
 
-    $query .= " WHERE $specificColumn = :$specificColumn";
+    $query .= " WHERE $specificColumn = :$specificColumn ORDER BY id $orderBy";
 
     if ($limit > 0) {
       $query .= " LIMIT $limit";
@@ -270,4 +270,6 @@ class Model
       $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
+
+  // Pagination
 }

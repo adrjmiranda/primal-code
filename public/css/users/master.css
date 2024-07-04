@@ -392,6 +392,9 @@
 
 #posts .post-card .info .description {
 	font-weight: 300;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 77px;
 }
 
 #posts .post-card .post-link {

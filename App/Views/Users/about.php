@@ -23,7 +23,7 @@
 	<header>
 		<!-- Navbar -->
 
-		<?php require_once __DIR__ . '/partials/navbar.php'; ?>
+		<?php require_once __DIR__ . '/partials/navbar-about.php'; ?>
 	</header>
 
 	<!-- About -->

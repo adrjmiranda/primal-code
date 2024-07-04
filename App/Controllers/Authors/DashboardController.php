@@ -16,6 +16,7 @@ class DashboardController
     $data = [];
     $fields = [];
     $limit = 0;
+    $orderBy = 'DESC';
 
     switch ($session) {
       case 'posts':
@@ -34,7 +35,7 @@ class DashboardController
         break;
     }
 
-    $data = $entity->findSpecificFields($fields, $limit);
+    $data = $entity->findSpecificFields($fields, $orderBy, $limit);
 
     return $data;
   }

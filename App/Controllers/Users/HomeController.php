@@ -12,7 +12,7 @@ class HomeController
   public function index(Request $request, array $params)
   {
     $categories = (new CategoryModel)->all();
-    $posts = (new PostModel)->findSpecificFieldsAndCondition(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', 'visible');
+    $posts = (new PostModel)->findSpecificFieldsAndCondition(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', 'visible', 'DESC');
     $featuredPost = (new PostModel)->findLastAndCondition('status', 'visible');
 
     $data['categories'] = $categories;

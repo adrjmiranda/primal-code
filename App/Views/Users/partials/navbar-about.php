@@ -1,6 +1,6 @@
 <nav id="navbar">
   <div class="container">
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <img src="<?= $base_url ?>/img/code.png" alt="Primal Code Logo" loading="eager" />Primal Code
     </a>
 
