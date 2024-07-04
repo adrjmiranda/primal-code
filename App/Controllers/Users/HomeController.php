@@ -21,4 +21,9 @@ class HomeController
 
     return Generator::render('Users/index', $data);
   }
+
+  public function about(Request $request, array $params)
+  {
+    return Generator::render('Users/about');
+  }
 }
