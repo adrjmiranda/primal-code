@@ -3,6 +3,8 @@
 namespace App\Controllers\Authors;
 
 use App\Http\Request;
+use App\Models\CategoryModel;
+use App\Models\PostCategoriesModel;
 use App\Models\PostModel;
 use App\Settings\Session\SessionKeyNames;
 use App\Utils\Template\Generator;
@@ -14,6 +16,9 @@ class PostController
   {
     $data['session_title'] = 'Create post';
     $data['active_session'] = 'create-post';
+
+    $categories = (new CategoryModel)->all();
+    $data['categories'] = $categories;
 
     return Generator::render("Authors/create-post", $data);
   }
@@ -38,6 +43,7 @@ class PostController
     $postData = $request->getPostVars();
     $image = $request->getFile('image');
 
+    $categories = $postData['categories'] ?? '';
     $title = $postData['title'] ?? '';
     $description = $postData['description'] ?? '';
     $slug = $postData['slug'] ?? '';
@@ -45,6 +51,7 @@ class PostController
 
     $dataToBeEvaluated = [
       'image' => $image,
+      'categories' => $categories,
       'title' => $title,
       'description' => $description,
       'slug' => $slug,
@@ -89,7 +96,23 @@ class PostController
 
     // Save post data
 
-    if ($entity->store()) {
+    $postId = $entity->store();
+
+    if ($postId) {
+      $categoryList = [];
+      $index = 0;
+      foreach ($categories as $categoryId) {
+        $postCategoryEntity = new PostCategoriesModel;
+
+        $postCategoryEntity->post_id = (int) $postId;
+        $postCategoryEntity->category_id = (int) $categoryId;
+
+        $categoryList[$index] = $postCategoryEntity;
+        $index++;
+      }
+
+      (new PostCategoriesModel)->insertMany($categoryList);
+
       $request->getRouter()->redirect('/authors/dashboard/posts');
     } else {
       $errors['create_error'] = 'An error occurred when trying to create the post';
@@ -112,6 +135,9 @@ class PostController
       $data['session_title'] = 'Edit post';
 
       $data['active_session'] = 'posts';
+
+      $categories = (new CategoryModel)->all();
+      $data['categories'] = $categories;
 
       return Generator::render("Authors/edit-post", $data);
     } else {

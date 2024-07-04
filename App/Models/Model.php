@@ -113,7 +113,7 @@ class Model
     }
   }
 
-  public function store(): ?bool
+  public function store()
   {
     $data = (array) $this;
 
@@ -144,9 +144,18 @@ class Model
         $stmt->bindValue(":$column", $value);
       }
 
-      return $stmt->execute();
+      $stmt->execute();
+
+      return $this->pdo->lastInsertId();
     } catch (PDOException $pDOException) {
       $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
+  public function insertMany(array $items)
+  {
+    foreach ($items as $item) {
+      $item->store();
     }
   }
 

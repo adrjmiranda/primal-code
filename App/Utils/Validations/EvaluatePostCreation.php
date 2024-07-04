@@ -2,6 +2,7 @@
 
 namespace App\Utils\Validations;
 
+use App\Models\CategoryModel;
 use App\Models\PostModel;
 
 class EvaluatePostCreation
@@ -21,6 +22,19 @@ class EvaluatePostCreation
   private function isValidImageSize(array $file): bool
   {
     return $file['size'] > 0 && ($file['size'] / (1024 * 1024)) <= EvaluatePostCreation::MAX_IMAGE_SIZE;
+  }
+
+  private function isValidCategories(array $categoriesId): bool
+  {
+    foreach ($categoriesId as $id) {
+      $category = (new CategoryModel)->findOne('id', (int) $id) ?? null;
+
+      if (!($category instanceof CategoryModel)) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   private function isValidTitle(string $title): bool
@@ -69,6 +83,14 @@ class EvaluatePostCreation
             $errors['image'] = 'Only png, jpg and jpeg images allowed';
           } else if (!$this->isValidImageSize($value)) {
             $errors['image'] = 'The image must be a maximum of ' . EvaluatePostCreation::MAX_IMAGE_SIZE . 'MB';
+          }
+
+          break;
+
+        case 'categories':
+
+          if (!$this->isValidCategories($value)) {
+            $errors['categories'] = 'Invalid selected categories';
           }
 
           break;

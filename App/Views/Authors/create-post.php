@@ -31,6 +31,22 @@ Generator::extendLayout('Authors/master');
 					</div>
 
 					<div class="input-field">
+						<label>Select categories:</label>
+
+						<?php foreach ($categories as $category): ?>
+							<div class="check-field">
+								<label for="category-<?= $category->id ?>">
+									<input type="checkbox" name="categories[]" id="category-<?= $category->id ?>"
+										value="<?= $category->id ?>"><?= $category->name ?>
+								</label>
+							</div>
+						<?php endforeach; ?>
+
+
+						<p class="form_error"><?= isset($errors['categories']) ? $errors['categories'] : '' ?></p>
+					</div>
+
+					<div class="input-field">
 						<label for="title">Title:</label>
 						<input type="text" name="title" id="title" placeholder="Post title"
 							value="<?= isset($data['title']) ? $data['title'] : '' ?>">
@@ -40,8 +56,8 @@ Generator::extendLayout('Authors/master');
 
 					<div class="input-field">
 						<label for="description">Description:</label>
-						<textarea name="description" id="description"
-							placeholder="Post description..."><?= isset($data['description']) ? $data['description'] : '' ?></textarea>
+						<textarea name="description" id="description" placeholder="Post description..."
+							rows="5"><?= isset($data['description']) ? $data['description'] : '' ?></textarea>
 
 						<p class="form_error"><?= isset($errors['description']) ? $errors['description'] : '' ?></p>
 					</div>

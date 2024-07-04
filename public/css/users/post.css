@@ -59,7 +59,6 @@
 #post .content .text-content {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
 }
 
 #post .content .text-content h2 {

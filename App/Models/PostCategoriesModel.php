@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-class PostCategories extends Model
+class PostCategoriesModel extends Model
 {
   public int $id;
   public int $post_id;

@@ -24,12 +24,26 @@ Generator::extendLayout('Authors/master');
 				<form action="/authors/post/update" id="editor-form" method="post" enctype="multipart/form-data">
 					<input type="hidden" name="id" value="<?= isset($data['id']) ? $data['id'] : '' ?>">
 
-					<p class="form_error"><?= isset($errors['not_found']) ? $errors['not_found'] : '' ?></p>
 					<div class="input-field">
 						<label for="image">Choose an image:</label>
 						<input type="file" name="image" id="image" max="1">
 
 						<p class="form_error"><?= isset($errors['image']) ? $errors['image'] : '' ?></p>
+					</div>
+
+					<div class="input-field">
+						<label>Select categories:</label>
+
+						<?php foreach ($categories as $category): ?>
+							<div class="check-field">
+								<label for="category-<?= $category->id ?>">
+									<input type="checkbox" name="category[]" id="category-<?= $category->id ?>"><?= $category->name ?>
+								</label>
+							</div>
+						<?php endforeach; ?>
+
+
+						<p class="form_error"><?= isset($errors['categories']) ? $errors['categories'] : '' ?></p>
 					</div>
 
 					<div class="input-field">
@@ -42,8 +56,8 @@ Generator::extendLayout('Authors/master');
 
 					<div class="input-field">
 						<label for="description">Description:</label>
-						<textarea name="description" id="description"
-							placeholder="Post description..."><?= isset($data['description']) ? $data['description'] : '' ?></textarea>
+						<textarea name="description" id="description" placeholder="Post description..."
+							rows="5"><?= isset($data['description']) ? $data['description'] : '' ?></textarea>
 
 						<p class="form_error"><?= isset($errors['description']) ? $errors['description'] : '' ?></p>
 					</div>
