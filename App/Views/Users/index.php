@@ -61,18 +61,7 @@ Generator::extendLayout('Users/master');
 
   <!-- Pagination Bar -->
 
-  <div id="pagination-bar">
-    <div class="container">
-      <ul>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">...</a></li>
-        <li><a href="#">22</a></li>
-        <li><a href="#">21</a></li>
-      </ul>
-    </div>
-  </div>
+  <?php require_once __DIR__ . '/partials/pagination-bar.php'; ?>
 
 <?php else: ?>
   <p style="font-style: italic; font-weight: bold; text-align: center; margin: 4rem 0">No posts published...</p>

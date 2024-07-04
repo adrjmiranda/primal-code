@@ -5,6 +5,16 @@ namespace App\Models;
 use PDO;
 use App\Settings\Connection\Database;
 use PDOException;
+use Exception;
+
+enum BasicConditions: string
+{
+  case Equal = '=';
+  case BiggerThen = '>';
+  case LessThan = '<';
+  case BiggerOrEqual = '>=';
+  case LessOrEqual = '<=';
+}
 
 class Model
 {
@@ -99,7 +109,7 @@ class Model
     }
   }
 
-  public function findSpecificFieldsAndCondition(array $fields, string $specificColumn, mixed $specificValue, string $orderBy = 'ASC', int $limit = 0): ?array
+  public function findSpecificFieldsAndCondition(array $fields, string $specificColumn, BasicConditions $condition, mixed $specificValue, string $orderBy = 'ASC', int $limit = 0, int $offset = 0): ?array
   {
     $query = "SELECT ";
 
@@ -109,10 +119,14 @@ class Model
     $query = substr($query, 0, -2);
     $query .= " FROM $this->table";
 
-    $query .= " WHERE $specificColumn = :$specificColumn ORDER BY id $orderBy";
+    $query .= " WHERE $specificColumn $condition->value :$specificColumn ORDER BY id $orderBy";
 
     if ($limit > 0) {
       $query .= " LIMIT $limit";
+    }
+
+    if ($offset > 0) {
+      $query .= " OFFSET $offset";
     }
 
     try {
@@ -140,11 +154,42 @@ class Model
     }
   }
 
-  public function findLastAndCondition(string $specificColumn, mixed $specificValue)
+  public function findLastAndCondition(string $specificColumn, BasicConditions $condition, mixed $specificValue)
   {
     $query = "SELECT * FROM posts WHERE";
 
-    $query .= " $specificColumn = :$specificColumn ORDER BY id DESC LIMIT 1";
+    $query .= " $specificColumn $condition->value :$specificColumn ORDER BY id DESC LIMIT 1";
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->bindValue(":$specificColumn", $specificValue);
+      $stmt->execute();
+
+      return $stmt->fetchObject(get_called_class());
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
+  public function findFirst()
+  {
+    $query = "SELECT * FROM posts ORDER BY id ASC LIMIT 1";
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute();
+
+      return $stmt->fetchObject(get_called_class());
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
+  public function findFirstAndCondition(string $specificColumn, BasicConditions $condition, mixed $specificValue)
+  {
+    $query = "SELECT * FROM posts WHERE";
+
+    $query .= " $specificColumn $condition->value :$specificColumn ORDER BY id ASC LIMIT 1";
 
     try {
       $stmt = $this->pdo->prepare($query);
@@ -271,5 +316,57 @@ class Model
     }
   }
 
+
   // Pagination
+
+  private function getTotalElements(): ?int
+  {
+    $query = "SELECT COUNT(id) FROM $this->table";
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->execute();
+
+      return (int) $stmt->fetchColumn();
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
+  public function getQuantityPerPage(int $quantity = 1): int
+  {
+    if ($quantity <= 0) {
+      throw new Exception("Var quantity must be greater than zero");
+    }
+
+    $numberOfEntities = $this->getTotalElements();
+
+    $quantityPerPage = $quantity;
+
+    if ($quantity > $numberOfEntities) {
+      $quantityPerPage = $numberOfEntities;
+    }
+
+    return $quantityPerPage;
+  }
+
+  public function getNumberOfPages(int $quantityPerPage): int
+  {
+    $quantityPerPage = $this->getQuantityPerPage($quantityPerPage);
+
+    if ($quantityPerPage <= 0) {
+      return 0;
+    }
+
+    $numberOfPages = ceil($this->getTotalElements() / $quantityPerPage);
+
+    return $numberOfPages;
+  }
+
+  public function getPage(array $fields, string $specificColumn, BasicConditions $condition, mixed $specificValue, string $orderBy, int $pageNumber, int $quantityPerPage)
+  {
+    $offset = ($pageNumber - 1) * $quantityPerPage;
+
+    return $this->findSpecificFieldsAndCondition($fields, $specificColumn, $condition, $specificValue, $orderBy, $quantityPerPage, $offset);
+  }
 }
