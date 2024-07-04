@@ -12,8 +12,8 @@ class HomeController
 {
   public function index(Request $request, array $params)
   {
-    $pageNubmer = $params['page'] ?? 1;
-    $itemsPerPage = 1;
+    $pageNubmer = 1;
+    $itemsPerPage = 6;
 
     $categories = (new CategoryModel)->all();
 
@@ -26,6 +26,7 @@ class HomeController
     $data['categories'] = $categories;
     $data['posts'] = $posts;
     $data['number_of_pages'] = $numberOfPages;
+    $data['page_number'] = $pageNubmer;
     $data['featured_post'] = $featuredPost;
 
     return Generator::render('Users/index', $data);
