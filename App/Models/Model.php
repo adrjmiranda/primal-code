@@ -99,6 +99,33 @@ class Model
     }
   }
 
+  public function findSpecificFieldsAndCondition(array $fields, string $specificColumn, mixed $specificValue, int $limit = 0): ?array
+  {
+    $query = "SELECT ";
+
+    foreach ($fields as $column) {
+      $query .= $column . ', ';
+    }
+    $query = substr($query, 0, -2);
+    $query .= " FROM $this->table";
+
+    $query .= " WHERE $specificColumn = :$specificColumn";
+
+    if ($limit > 0) {
+      $query .= " LIMIT $limit";
+    }
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->bindValue(":$specificColumn", $specificValue);
+      $stmt->execute();
+
+      return $stmt->fetchAll();
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
   public function findLast()
   {
     $query = "SELECT * FROM posts ORDER BY id DESC LIMIT 1";
