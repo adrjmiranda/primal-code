@@ -15,9 +15,11 @@ class PostController
     $slug = $params['slug'] ?? '';
 
     $post = (new PostModel)->findOne('slug', $slug) ?? null;
+    $categories = (new CategoryModel)->all();
 
     if ($post instanceof PostModel) {
       $data['post'] = $post;
+      $data['categories'] = $categories;
 
       return Generator::render('Users/post', $data);
     } else {

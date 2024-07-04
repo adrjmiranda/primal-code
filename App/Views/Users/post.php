@@ -62,24 +62,7 @@
 					</form>
 				</div>
 
-				<div class="categories-bar">
-					<h4 class="title">Categories</h4>
-					<ul class="categories-menu">
-						<li><a href="#">All</a></li>
-						<li><a href="#">Web Development</a></li>
-						<li><a href="#">Programming</a></li>
-						<li><a href="#">Technology</a></li>
-						<li><a href="#">Software Development</a></li>
-						<li><a href="#">Mobile</a></li>
-						<li><a href="#">Database</a></li>
-						<li><a href="#">Career in Technology</a></li>
-						<li><a href="#">Information Security</a></li>
-						<li><a href="#">Data Analysis</a></li>
-						<li><a href="#">Tutorials and Guides</a></li>
-						<li><a href="#">News and Trends</a></li>
-						<li><a href="#">Open Source</a></li>
-					</ul>
-				</div>
+				<?php require_once __DIR__ . '/partials/categories-bar.php'; ?>
 			</aside>
 		</div>
 	</div>
