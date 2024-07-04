@@ -140,6 +140,23 @@ class Model
     }
   }
 
+  public function findLastAndCondition(string $specificColumn, mixed $specificValue)
+  {
+    $query = "SELECT * FROM posts WHERE";
+
+    $query .= " $specificColumn = :$specificColumn ORDER BY id DESC LIMIT 1";
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+      $stmt->bindValue(":$specificColumn", $specificValue);
+      $stmt->execute();
+
+      return $stmt->fetchObject(get_called_class());
+    } catch (PDOException $pDOException) {
+      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
   public function store()
   {
     $data = (array) $this;

@@ -13,7 +13,7 @@ class HomeController
   {
     $categories = (new CategoryModel)->all();
     $posts = (new PostModel)->findSpecificFieldsAndCondition(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', 'visible');
-    $featuredPost = (new PostModel)->findLast();
+    $featuredPost = (new PostModel)->findLastAndCondition('status', 'visible');
 
     $data['categories'] = $categories;
     $data['posts'] = $posts;

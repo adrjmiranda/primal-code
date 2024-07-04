@@ -69,7 +69,10 @@ Generator::extendLayout('Users/master');
     <div class="container">
       <!-- Featured Post -->
 
-      <?php require __DIR__ . '/partials/featured-post.php'; ?>
+      <?php if (isset($featured_post)): ?>
+        <?php require __DIR__ . '/partials/featured-post.php'; ?>
+      <?php endif; ?>
+
 
       <!-- Posts -->
 
