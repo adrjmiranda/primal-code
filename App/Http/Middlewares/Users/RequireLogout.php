@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Middlewares\Authors;
+namespace App\Http\Middlewares\Users;
 
 use App\Http\Request;
 use App\Settings\Session\Users\Config;

@@ -9,7 +9,7 @@
       <li><a href="#">Categories</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="#" id="login-btn">Login</a></li>
+      <li><a href="/users/login" id="login-btn">Login</a></li>
     </ul>
 
     <form action="#">
