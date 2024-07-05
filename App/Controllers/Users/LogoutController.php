@@ -4,14 +4,13 @@ namespace App\Controllers\Users;
 
 use App\Http\Request;
 use App\Settings\Session\Users\Config;
-use App\Utils\Template\Generator;
 
 class LogoutController
 {
   public function logout(Request $request, array $params)
   {
-    Config::logout();
+    Config::logout('users');
 
-    return Generator::render('Users/login');
+    $request->getRouter()->redirect('/');
   }
 }

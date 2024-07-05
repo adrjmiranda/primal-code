@@ -20,19 +20,19 @@
 <body>
 	<div id="auth">
 		<div class="container">
-			<form action="#">
+			<form action="/users/login" method="post">
 				<h1><ion-icon name="code-slash"></ion-icon>Login</h1>
 
 				<div class="input-field">
 					<label for="email"><ion-icon name="mail-outline"></ion-icon>E-mail</label>
-					<input type="email" name="email" id="email" placeholder="Your email" />
+					<input type="email" name="email" id="email" placeholder="Your email" value="<?= $email ?>" />
 
 					<p class="form_error"><?= !empty($email_error) ? $email_error : '' ?></p>
 				</div>
 
 				<div class="input-field">
 					<label for="password"><ion-icon name="lock-closed-outline"></ion-icon>Password</label>
-					<input type="password" name="password" id="password" placeholder="Your password" />
+					<input type="password" name="password" id="password" placeholder="Your password" value="<?= $password ?>" />
 
 					<p class="form_error"><?= !empty($password_error) ? $password_error : '' ?></p>
 

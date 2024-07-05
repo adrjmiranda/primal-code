@@ -2,17 +2,9 @@
 
 namespace App\Settings\Session;
 
-enum SessionKeyNames: string
-{
-  case Users = 'users';
-  case Authors = 'authors';
-}
-
 class Main
 {
-  public static SessionKeyNames $sessionKey;
-
-  public function __construct(SessionKeyNames $sessionKey)
+  public function __construct(string $sessionKey)
   {
     self::$sessionKey = $sessionKey;
   }
@@ -37,21 +29,21 @@ class Main
     }
   }
 
-  public static function setSession(object $user): void
+  public static function setSession(object $user, string $sessionKey): void
   {
     self::init();
 
-    $_SESSION[self::$sessionKey->value]['id'] = $user->id;
-    $_SESSION[self::$sessionKey->value]['name'] = $user->name;
-    $_SESSION[self::$sessionKey->value]['email'] = $user->email;
+    $_SESSION[$sessionKey]['id'] = $user->id;
+    $_SESSION[$sessionKey]['name'] = $user->name;
+    $_SESSION[$sessionKey]['email'] = $user->email;
   }
 
-  public static function logout(): void
+  public static function logout(string $sessionKey): void
   {
     self::init();
 
-    if (isset($_SESSION[SessionKeyNames::Authors->value]) && isset($_SESSION[SessionKeyNames::Users->value])) {
-      unset($_SESSION[self::$sessionKey->value]);
+    if (isset($_SESSION['authors']) && isset($_SESSION['users'])) {
+      unset($_SESSION[$sessionKey]);
       return;
     }
 

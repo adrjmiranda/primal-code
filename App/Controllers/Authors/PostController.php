@@ -85,7 +85,7 @@ class PostController
       return $this->redirectAfterError($request, $params, $dataToBeEvaluated, $errors, 'create');
     }
 
-    $author_id = $_SESSION[SessionKeyNames::Authors->value]['id'];
+    $author_id = $_SESSION['authors']['id'];
 
     $entity->image_url = $imageName;
     $entity->title = $title;
@@ -218,7 +218,7 @@ class PostController
         }
       }
 
-      $author_id = $_SESSION[SessionKeyNames::Authors->value]['id'];
+      $author_id = $_SESSION['authors']['id'];
 
       $post->title = $title;
       $post->description = $description;

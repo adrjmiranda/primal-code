@@ -4,6 +4,7 @@ namespace App\Controllers\Users;
 
 use App\Http\Request;
 use App\Models\UserModel;
+use App\Settings\Session\Users\Config;
 use App\Utils\Template\Generator;
 use App\Utils\Validations\EvaluateUserRegister;
 
@@ -47,9 +48,14 @@ class RegisterController
 
     $user->name = $name;
     $user->email = $email;
-    $user->password = $password;
+    $user->password = password_hash($password, PASSWORD_DEFAULT);
 
-    if ($user->store()) {
+    $userId = $user->store();
+
+    if ($userId) {
+      $user->id = $userId;
+      (new Config())::setSession($user, 'users');
+
       $request->getRouter()->redirect('/');
     } else {
       $data['data'] = $dataForEvaluation;

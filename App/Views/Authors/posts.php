@@ -59,7 +59,9 @@ Generator::extendLayout('Authors/master');
 
 				<!-- Pagination Bar -->
 
-				<?php require_once __DIR__ . '/partials/pagination-bar-posts.php'; ?>
+				<?php if (count($data) > 0): ?>
+					<?php require_once __DIR__ . '/partials/pagination-bar-posts.php'; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

@@ -8,7 +8,12 @@
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="#">Contact</a></li>
-      <li><a href="/users/login" id="login-btn">Login</a></li>
+
+      <?php if (isset($_SESSION['users'])): ?>
+        <li><a href="/users/logout" id="login-btn">Logout</a></li>
+      <?php else: ?>
+        <li><a href="/users/login" id="login-btn">Login</a></li>
+      <?php endif; ?>
     </ul>
 
     <form action="#">
