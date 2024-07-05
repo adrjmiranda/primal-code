@@ -9,7 +9,7 @@ use Exception;
 
 class Model
 {
-  private PDO $pdo;
+  protected PDO $pdo;
   private string $table;
 
   public function __construct(string $table)
@@ -18,7 +18,7 @@ class Model
     $this->pdo = Database::getConnection();
   }
 
-  private function hadleException(string $message, mixed $erroCode)
+  protected function hadleException(string $message, mixed $erroCode)
   {
     // TODO: In Development
     var_dump($message);
@@ -193,15 +193,26 @@ class Model
     }
   }
 
-  public function store()
+  private function removeUselessKeys(array $data): array
   {
-    $data = (array) $this;
-
     foreach ($data as $key => $value) {
       if (strpos($key, 'App\Models') !== false || $key === 'id') {
         unset($data[$key]);
       }
+
+      if (strpos($key, 'pdo') !== false) {
+        unset($data[$key]);
+      }
     }
+
+    return $data;
+  }
+
+  public function store()
+  {
+    $data = (array) $this;
+
+    $data = $this->removeUselessKeys($data);
 
     $columns = array_keys($data);
 
@@ -243,11 +254,7 @@ class Model
   {
     $data = (array) $this;
 
-    foreach ($data as $key => $value) {
-      if (strpos($key, 'App\Models') !== false) {
-        unset($data[$key]);
-      }
-    }
+    $data = $this->removeUselessKeys($data);
 
     $columns = array_keys($data);
 
@@ -335,7 +342,7 @@ class Model
     $quantityPerPage = $quantity;
 
     if ($quantity > $numberOfEntities) {
-      $quantityPerPage = $numberOfEntities;
+      $quantityPerPage = $numberOfEntities === 0 ? 1 : $numberOfEntities;
     }
 
     return $quantityPerPage;

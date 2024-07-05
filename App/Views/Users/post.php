@@ -73,7 +73,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="img">
-					<img src="<?= $base_url ?>/img/avatar.png" alt="..." />
+					<img src="<?= $base_url ?>/img/authors/avatar.png" alt="..." />
 				</div>
 
 				<div class="info">
@@ -119,133 +119,12 @@
 
 	<!-- Comment Area -->
 
-	<div id="comment-area">
-		<div class="container">
-			<div class="content">
-				<form action="#" id="comment-form">
-					<label for="comment">Leave your comment about the post:</label>
-					<textarea name="comment" id="comment" placeholder="Your comment..."></textarea>
-
-					<button type="submit" class="btn btn-secondary">
-						Send comment
-					</button>
-				</form>
-			</div>
-		</div>
-	</div>
+	<?php require_once __DIR__ . '/partials/comment-area.php'; ?>
 
 	<!-- Comments -->
 
-	<div id="comments">
-		<div class="container">
-			<h3>Comments:</h3>
+	<?php require __DIR__ . '/partials/comments.php'; ?>
 
-			<div class="content">
-				<div class="comment">
-					<div class="comment-header">
-						<div class="user-info">
-							<img src="<?= $base_url ?>/img/user_1.jpg" alt="..." />
-							<span class="user-name">Jane Doe</span>
-						</div>
-						<div class="date">October 6th, 1981</div>
-					</div>
-					<div class="comment-text">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reiciendis ad fugit odit aliquid excepturi numquam voluptatibus
-							fuga quas aperiam vel provident, maxime commodi quam sit
-							perspiciatis doloremque illo assumenda in.
-						</p>
-					</div>
-				</div>
-
-				<div class="comment">
-					<div class="comment-header">
-						<div class="user-info">
-							<img src="<?= $base_url ?>/img/user_2.jpg" alt="..." />
-							<span class="user-name">John Doe</span>
-						</div>
-						<div class="date">October 6th, 1981</div>
-					</div>
-					<div class="comment-text">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reiciendis ad fugit odit aliquid excepturi numquam voluptatibus
-							fuga quas aperiam vel provident, maxime commodi quam sit
-							perspiciatis doloremque illo assumenda in.
-						</p>
-					</div>
-				</div>
-
-				<div class="comment">
-					<div class="comment-header">
-						<div class="user-info">
-							<img src="<?= $base_url ?>/img/user_3.jpg" alt="..." />
-							<span class="user-name">Jane Doe</span>
-						</div>
-						<div class="date">October 6th, 1981</div>
-					</div>
-					<div class="comment-text">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reiciendis ad fugit odit aliquid excepturi numquam voluptatibus
-							fuga quas aperiam vel provident, maxime commodi quam sit
-							perspiciatis doloremque illo assumenda in.
-						</p>
-					</div>
-				</div>
-
-				<div class="comment">
-					<div class="comment-header">
-						<div class="user-info">
-							<img src="<?= $base_url ?>/img/user_4.jpg" alt="..." />
-							<span class="user-name">Jane Doe</span>
-						</div>
-						<div class="date">October 6th, 1981</div>
-					</div>
-					<div class="comment-text">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reiciendis ad fugit odit aliquid excepturi numquam voluptatibus
-							fuga quas aperiam vel provident, maxime commodi quam sit
-							perspiciatis doloremque illo assumenda in.
-						</p>
-					</div>
-				</div>
-
-				<div class="comment">
-					<div class="comment-header">
-						<div class="user-info">
-							<img src="<?= $base_url ?>/img/user_5.jpg" alt="..." />
-							<span class="user-name">Jane Doe</span>
-						</div>
-						<div class="date">October 6th, 1981</div>
-					</div>
-					<div class="comment-text">
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Reiciendis ad fugit odit aliquid excepturi numquam voluptatibus
-							fuga quas aperiam vel provident, maxime commodi quam sit
-							perspiciatis doloremque illo assumenda in.
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div id="pagination-bar">
-				<div class="container">
-					<ul>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">...</a></li>
-						<li><a href="#">22</a></li>
-						<li><a href="#">21</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<!-- Footer -->
 

@@ -12,7 +12,7 @@
         <a href="#"><?= $_SESSION['authors']['name'] ?></a>
       </div>
 
-      <img src="<?= $base_url ?>/img/avatar.png" alt="<?= $_SESSION['authors']['name'] ?>" />
+      <img src="<?= $base_url ?>/img/authors/avatar.png" alt="<?= $_SESSION['authors']['name'] ?>" />
     </div>
   </div>
 </div>

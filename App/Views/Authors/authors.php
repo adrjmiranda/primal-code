@@ -56,6 +56,12 @@ Generator::extendLayout('Authors/master');
 						<?php endif; ?>
 					</table>
 				</div>
+
+				<!-- Pagination Bar -->
+
+				<?php if (count($data) > 0): ?>
+					<?php require_once __DIR__ . '/partials/pagination-bar-authors.php'; ?>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

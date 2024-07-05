@@ -5,12 +5,13 @@ namespace App\Controllers\Users;
 use App\Http\Request;
 use App\Models\BasicConditions;
 use App\Models\CategoryModel;
+use App\Models\CommentModel;
 use App\Models\PostModel;
 use App\Utils\Template\Generator;
 
 class PostController
 {
-  public function get(Request $request, array $params)
+  public function get(Request $request, array $params, array $data = [])
   {
     $slug = $params['slug'] ?? '';
 
@@ -20,6 +21,21 @@ class PostController
     if ($post instanceof PostModel) {
       $data['post'] = $post;
       $data['categories'] = $categories;
+
+      $postId = $post->id;
+      $userId = (int) ($_SESSION['users']['id'] ?? '');
+
+      $data['comment_already_made_on_this_post'] = false;
+      $commentAlreadyMadeOnThisPost = (new CommentModel)->getCommentByUserIdAndPostId($userId, $postId);
+
+      if ($commentAlreadyMadeOnThisPost instanceof CommentModel) {
+        $data['comment_already_made_on_this_post'] = true;
+      }
+
+      // Get comments
+
+      $comments = (new CommentModel)->findSpecificFieldsAndCondition(['id', 'content', 'post_id', 'user_id', 'created_at'], 'post_id', '=', $post->id, 'DESC');
+      $data['comments'] = $comments;
 
       return Generator::render('Users/post', $data);
     } else {
