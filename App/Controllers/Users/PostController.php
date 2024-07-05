@@ -64,4 +64,20 @@ class PostController
 
     return Generator::render('Users/index', $data);
   }
+
+  public function search(Request $request, array $params)
+  {
+    $data = $request->getPostVars();
+    $searchKey = $data['search'] ?? '';
+
+    if (empty($searchKey)) {
+      $request->getRouter()->redirect('/');
+    }
+
+    $posts = (new PostModel)->findByText(['title', 'description', 'slug', 'image_url', 'updated_at'], 'title', $searchKey, 'status', '=', 'visible', 'DESC') ?? [];
+    $data['posts'] = $posts;
+    $data['search_key'] = $searchKey;
+
+    return Generator::render('Users/search-posts', $data);
+  }
 }

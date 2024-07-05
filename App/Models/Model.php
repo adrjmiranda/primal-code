@@ -18,11 +18,35 @@ class Model
     $this->pdo = Database::getConnection();
   }
 
-  protected function hadleException(string $message, mixed $erroCode)
+  protected function handleException(string $message, mixed $erroCode)
   {
     // TODO: In Development
     var_dump($message);
   }
+
+  public function findByText(array $fields, string $textColumn, string $text, string $conditionColumn, string $condition, mixed $conditionValue, string $orderBy = 'ASC'): ?array
+  {
+    $query = "SELECT ";
+
+    foreach ($fields as $column) {
+      $query .= "$column, ";
+    }
+    $query = substr($query, 0, -2);
+    $query .= " FROM posts WHERE $textColumn LIKE :text AND $conditionColumn $condition :$conditionColumn ORDER BY id $orderBy";
+
+    try {
+      $stmt = $this->pdo->prepare($query);
+
+      $stmt->bindValue(":text", '%' . $text . '%', PDO::PARAM_STR);
+      $stmt->bindValue(":$conditionColumn", $conditionValue);
+      $stmt->execute();
+
+      return $stmt->fetchAll();
+    } catch (PDOException $pDOException) {
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
+    }
+  }
+
 
   public function all(string $orderBy = 'ASC', int $limit = 0): ?array
   {
@@ -38,7 +62,7 @@ class Model
 
       return $stmt->fetchAll();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -57,7 +81,7 @@ class Model
 
       return $stmt->fetchAll();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -72,7 +96,7 @@ class Model
 
       return $stmt->fetchObject(get_called_class());
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -96,7 +120,7 @@ class Model
 
       return $stmt->fetchAll();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -127,7 +151,7 @@ class Model
 
       return $stmt->fetchAll();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -141,7 +165,7 @@ class Model
 
       return $stmt->fetchObject(get_called_class());
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -158,7 +182,7 @@ class Model
 
       return $stmt->fetchObject(get_called_class());
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -172,7 +196,7 @@ class Model
 
       return $stmt->fetchObject(get_called_class());
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -189,7 +213,7 @@ class Model
 
       return $stmt->fetchObject(get_called_class());
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -239,7 +263,7 @@ class Model
 
       return $this->pdo->lastInsertId();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -278,7 +302,7 @@ class Model
 
       return $stmt->execute();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -296,7 +320,7 @@ class Model
 
       return $stmt->execute();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -310,7 +334,7 @@ class Model
 
       return $stmt->execute();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 
@@ -327,7 +351,7 @@ class Model
 
       return (int) $stmt->fetchColumn();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 

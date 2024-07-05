@@ -30,7 +30,7 @@ class UserModel extends Model
 
       return (string) $stmt->fetchColumn();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 }

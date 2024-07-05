@@ -31,7 +31,7 @@ class CommentModel extends Model
 
       return $stmt->fetchObject(get_called_class());
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 }

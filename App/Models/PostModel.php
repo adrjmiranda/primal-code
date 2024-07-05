@@ -61,7 +61,7 @@ class PostModel extends Model
 
       return $stmt->fetchAll();
     } catch (PDOException $pDOException) {
-      $this->hadleException($pDOException->getMessage(), $pDOException->getCode());
+      $this->handleException($pDOException->getMessage(), $pDOException->getCode());
     }
   }
 

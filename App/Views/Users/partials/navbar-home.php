@@ -17,12 +17,7 @@
       <?php endif; ?>
     </ul>
 
-    <form action="#">
-      <input type="search" name="search" id="search" placeholder="Search..." />
-      <button type="submit">
-        <ion-icon name="search-outline"></ion-icon>
-      </button>
-    </form>
+    <?php require_once __DIR__ . '/search-form.php'; ?>
   </div>
 
   <button type="button" id="toggle-menu">
