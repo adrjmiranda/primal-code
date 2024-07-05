@@ -26,6 +26,10 @@ class EvaluatePostCreation
 
   private function isValidCategories(array $categoriesId): bool
   {
+    if (empty($categoriesId)) {
+      return false;
+    }
+
     foreach ($categoriesId as $id) {
       $category = (new CategoryModel)->findOne('id', (int) $id) ?? null;
 

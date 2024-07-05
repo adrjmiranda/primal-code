@@ -43,7 +43,7 @@ class PostController
     $postData = $request->getPostVars();
     $image = $request->getFile('image');
 
-    $categories = $postData['categories'] ?? '';
+    $categories = $postData['categories'] ?? [];
     $title = $postData['title'] ?? '';
     $description = $postData['description'] ?? '';
     $slug = $postData['slug'] ?? '';
