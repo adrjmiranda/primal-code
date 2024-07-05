@@ -26,11 +26,15 @@
 				<div class="input-field">
 					<label for="email"><ion-icon name="mail-outline"></ion-icon>E-mail</label>
 					<input type="email" name="email" id="email" placeholder="Your email" />
+
+					<p class="form_error"><?= !empty($email_error) ? $email_error : '' ?></p>
 				</div>
 
 				<div class="input-field">
 					<label for="password"><ion-icon name="lock-closed-outline"></ion-icon>Password</label>
 					<input type="password" name="password" id="password" placeholder="Your password" />
+
+					<p class="form_error"><?= !empty($password_error) ? $password_error : '' ?></p>
 
 					<div class="toggle-visibility-pass" data-area="pass">
 						<button type="button" class="visible">

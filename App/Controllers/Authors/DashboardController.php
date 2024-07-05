@@ -56,7 +56,7 @@ class DashboardController
   public function index(Request $request, array $params, array $data = [])
   {
     $session = $params['session'] ?? '';
-    $page = $params['page'] ?? '';
+    $page = $params['page'] ?? 1;
 
     $pageNumber = 0;
 
