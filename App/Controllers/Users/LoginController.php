@@ -43,7 +43,7 @@ class LoginController
       ]);
     }
 
-    (new Config())::setSession($user, 'users');
+    (new Config)::setSession($user, 'users');
 
     $request->getRouter()->redirect('/');
   }

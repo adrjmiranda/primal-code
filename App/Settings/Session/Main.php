@@ -4,11 +4,6 @@ namespace App\Settings\Session;
 
 class Main
 {
-  public function __construct(string $sessionKey)
-  {
-    self::$sessionKey = $sessionKey;
-  }
-
   public static function init(): void
   {
     if (session_status() !== PHP_SESSION_ACTIVE) {

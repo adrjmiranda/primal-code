@@ -8,7 +8,6 @@ class Config extends Main
 {
   public function __construct()
   {
-    parent::__construct('users');
   }
 
   public static function isLoggedIn(): bool

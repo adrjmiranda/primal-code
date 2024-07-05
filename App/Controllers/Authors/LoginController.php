@@ -43,7 +43,7 @@ class LoginController
       ]);
     }
 
-    (new Config())::setSession($user);
+    (new Config)::setSession($user, 'authors');
 
     $request->getRouter()->redirect('/authors/dashboard/posts');
   }
