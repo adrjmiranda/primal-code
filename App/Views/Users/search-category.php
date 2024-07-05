@@ -13,8 +13,8 @@ Generator::extendLayout('Users/master');
   <?php require_once __DIR__ . '/partials/navbar-home.php'; ?>
 </header>
 
-<h1 class="container" style="margin-top: 2rem;">Search results for: <span
-    style="font-weight: 900; font-size: 2rem; text-transform: uppercase; color: white;"><?= $search_key ?></span>
+<h1 class="container" style="margin-top: 2rem;">Search results for category: <span
+    style="font-weight: 900; font-size: 2rem; text-transform: uppercase; color: white;"><?= $category_key ?></span>
 </h1>
 
 <?php if (!empty($posts)): ?>

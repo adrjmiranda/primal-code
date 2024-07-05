@@ -20,12 +20,7 @@ class HomeController
     $quantityPerPage = (new PostModel)->getQuantityPerPage($itemsPerPage);
     $numberOfPages = (new PostModel)->getNumberOfPages($quantityPerPage);
 
-    if (isset($data['posts_by_categories'])) {
-      $posts = $data['posts_by_categories'];
-    } else {
-      $posts = (new PostModel)->getPage(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', '=', 'visible', 'DESC', $pageNumber, $quantityPerPage);
-    }
-
+    $posts = (new PostModel)->getPage(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', '=', 'visible', 'DESC', $pageNumber, $quantityPerPage);
 
     $featuredPost = (new PostModel)->findLastAndCondition('status', '=', 'visible');
 
@@ -40,17 +35,24 @@ class HomeController
 
   public function about(Request $request, array $params)
   {
-    return Generator::render('Users/about');
   }
 
   public function getPostsByCategory(Request $request, array $params)
   {
     $categoryId = (int) ($params['category_id'] ?? '');
 
-    $posts = (new PostModel)->getByCategories(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', '=', 'visible', $categoryId, 'DESC') ?? [];
+    $category = (new CategoryModel)->findOne('id', $categoryId) ?? null;
 
-    $data['posts_by_categories'] = $posts;
+    if ($category instanceof CategoryModel) {
 
-    return $this->index($request, $params, $data);
+
+      $posts = (new PostModel)->getByCategories(['title', 'description', 'slug', 'image_url', 'updated_at'], 'status', '=', 'visible', $categoryId, 'DESC') ?? [];
+
+      $data['posts'] = $posts;
+      $data['category_key'] = $category->name;
+      return Generator::render('Users/search-category', $data);
+    } else {
+      $request->getRouter()->redirect('/');
+    }
   }
 }
