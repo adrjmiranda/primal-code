@@ -46,8 +46,16 @@ class CommentController
       $post = (new PostModel)->findOne('id', $postId) ?? null;
 
       if ($post instanceof PostModel) {
-        $slug = $post->slug;
-        $request->getRouter()->redirect("/post/$slug");
+
+        $numberOfComments = $post->number_of_comments;
+        $numberOfComments += 1;
+
+        $post->number_of_comments = $numberOfComments;
+
+        if ($post->update()) {
+          $slug = $post->slug;
+          $request->getRouter()->redirect("/post/$slug");
+        }
       }
     }
 

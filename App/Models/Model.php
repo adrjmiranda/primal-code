@@ -217,10 +217,25 @@ class Model
     }
   }
 
-  private function removeUselessKeys(array $data): array
+  private function removeUselessKeysInStore(array $data): array
   {
     foreach ($data as $key => $value) {
       if (strpos($key, 'App\Models') !== false || $key === 'id') {
+        unset($data[$key]);
+      }
+
+      if (strpos($key, 'pdo') !== false) {
+        unset($data[$key]);
+      }
+    }
+
+    return $data;
+  }
+
+  private function removeUselessKeysInUpdate(array $data): array
+  {
+    foreach ($data as $key => $value) {
+      if (strpos($key, 'App\Models') !== false) {
         unset($data[$key]);
       }
 
@@ -236,7 +251,7 @@ class Model
   {
     $data = (array) $this;
 
-    $data = $this->removeUselessKeys($data);
+    $data = $this->removeUselessKeysInStore($data);
 
     $columns = array_keys($data);
 
@@ -278,7 +293,7 @@ class Model
   {
     $data = (array) $this;
 
-    $data = $this->removeUselessKeys($data);
+    $data = $this->removeUselessKeysInUpdate($data);
 
     $columns = array_keys($data);
 
