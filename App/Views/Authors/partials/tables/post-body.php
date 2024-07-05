@@ -3,7 +3,7 @@
     <tr>
       <td><?= $post->id ?></td>
       <td>
-        <a href="#"><?= $post->title ?></a>
+        <a href="/post/<?= $post->slug ?>" target="_blank"><?= $post->title ?></a>
       </td>
       <td><?= $post->updated_at ?></td>
       <td><?= $post->number_of_comments ?></td>

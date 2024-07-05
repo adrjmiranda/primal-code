@@ -29,7 +29,7 @@ class DashboardController
     switch ($session) {
       case 'posts':
         $entity = new PostModel;
-        $fields = ['id', 'title', 'number_of_comments', 'status', 'updated_at'];
+        $fields = ['id', 'title', 'slug', 'number_of_comments', 'status', 'updated_at'];
 
         $specificColumn = 'status';
         $condition = '=';
