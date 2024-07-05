@@ -10,16 +10,6 @@
       <td>
         <ul>
           <li>
-            <a href="#" class="edit-btn">
-              <ion-icon name="create-outline"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="toggle-visibility-btn">
-              <ion-icon name="eye-off-outline"></ion-icon>
-            </a>
-          </li>
-          <li>
             <a href="#" class="remove-btn">
               <ion-icon name="trash-outline"></ion-icon>
             </a>
