@@ -23,12 +23,18 @@
 			<form action="/users/register" method="post">
 				<h1><ion-icon name="code-slash"></ion-icon>Register</h1>
 
+				<?php if (isset($errors['register'])): ?>
+					<p class="form_error"><?= isset($errors['register']) ? $errors['register'] : '' ?></p>
+				<?php endif; ?>
+
 				<div class="input-field">
 					<label for="name"><ion-icon name="person-circle-outline"></ion-icon>Name</label>
 					<input type="text" name="name" id="name" placeholder="Your name"
 						value="<?= isset($data['name']) ? $data['name'] : '' ?>" />
 
-					<p class="form_error"><?= isset($errors['name']) ? $errors['name'] : '' ?></p>
+					<?php if (isset($errors['name'])): ?>
+						<p class="form_error"><?= isset($errors['name']) ? $errors['name'] : '' ?></p>
+					<?php endif; ?>
 				</div>
 
 				<div class="input-field">
@@ -36,7 +42,9 @@
 					<input type="email" name="email" id="email" placeholder="Your email"
 						value="<?= isset($data['email']) ? $data['email'] : '' ?>" />
 
-					<p class="form_error"><?= isset($errors['email']) ? $errors['email'] : '' ?></p>
+					<?php if (isset($errors['email'])): ?>
+						<p class="form_error"><?= isset($errors['email']) ? $errors['email'] : '' ?></p>
+					<?php endif; ?>
 				</div>
 
 				<div class="input-field">
@@ -44,7 +52,9 @@
 					<input type="password" name="password" id="password" placeholder="Your password"
 						value="<?= isset($data['password']) ? $data['password'] : '' ?>" />
 
-					<p class="form_error"><?= isset($errors['password']) ? $errors['password'] : '' ?></p>
+					<?php if (isset($errors['password'])): ?>
+						<p class="form_error"><?= isset($errors['password']) ? $errors['password'] : '' ?></p>
+					<?php endif; ?>
 
 					<div class="toggle-visibility-pass" data-area="pass">
 						<button type="button" class="visible">
@@ -63,7 +73,9 @@
 						placeholder="Your password again"
 						value="<?= isset($data['password_confirmation']) ? $data['password_confirmation'] : '' ?>" />
 
-					<p class="form_error"><?= isset($errors['password_confirmation']) ? $errors['password_confirmation'] : '' ?>
+					<?php if (isset($errors['password_confirmation'])): ?>
+						<p class="form_error"><?= isset($errors['password_confirmation']) ? $errors['password_confirmation'] : '' ?>
+						<?php endif; ?>
 					</p>
 
 					<div class="toggle-visibility-pass" data-area="passconfirmation">

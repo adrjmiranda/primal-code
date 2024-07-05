@@ -56,6 +56,10 @@ Generator::extendLayout('Authors/master');
 						<?php endif; ?>
 					</table>
 				</div>
+
+				<!-- Pagination Bar -->
+
+				<?php require_once __DIR__ . '/partials/pagination-bar-users.php'; ?>
 			</div>
 		</div>
 	</div>

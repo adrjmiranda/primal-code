@@ -3,6 +3,7 @@
 namespace App\Controllers\Users;
 
 use App\Http\Request;
+use App\Models\UserModel;
 use App\Utils\Template\Generator;
 use App\Utils\Validations\EvaluateUserRegister;
 
@@ -38,6 +39,21 @@ class RegisterController
     if (!empty($errors)) {
       $data['data'] = $dataForEvaluation;
       $data['errors'] = $errors;
+
+      return $this->index($request, $params, $data);
+    }
+
+    $user = new UserModel;
+
+    $user->name = $name;
+    $user->email = $email;
+    $user->password = $password;
+
+    if ($user->store()) {
+      $request->getRouter()->redirect('/');
+    } else {
+      $data['data'] = $dataForEvaluation;
+      $data['errors']['register'] = 'Unable to register';
 
       return $this->index($request, $params, $data);
     }
