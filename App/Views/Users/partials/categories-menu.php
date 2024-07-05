@@ -6,9 +6,9 @@
     <ion-icon name="caret-forward-outline"></ion-icon>
   </button>
 
-  <li><a href="#">All</a></li>
+  <li><a href="/">All</a></li>
 
   <?php foreach ($categories as $category): ?>
-    <li><a href="#"><?= $category->name ?></a></li>
+    <li><a href="/posts/category/<?= $category->id ?>"><?= $category->name ?></a></li>
   <?php endforeach; ?>
 </ul>
