@@ -8,7 +8,7 @@ composer.phar
 .env
 
 # Unnecessary files
-**/Cache
+**/Cache/*
 
 **/img/posts/*
 **/img/users/*

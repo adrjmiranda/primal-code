@@ -20,10 +20,21 @@ class Request
 
     $this->uri = $_SERVER['REQUEST_URI'];
     $this->setHttpMethod();
-    $this->headers = getallheaders();
+    $this->headers = $this->get_all_headers();
     $this->postVars = $_POST ?? [];
     $this->queryParams = $_GET ?? [];
     $this->files = $_FILES ?? [];
+  }
+
+  private function get_all_headers()
+  {
+    $headers = [];
+    foreach ($_SERVER as $name => $value) {
+      if (substr($name, 0, 5) == 'HTTP_') {
+        $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+      }
+    }
+    return $headers;
   }
 
   public function getRouter(): Router
