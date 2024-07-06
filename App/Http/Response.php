@@ -49,11 +49,11 @@ class Response
     switch ($this->contentType) {
       case EnabledContentTypes::TextHtml:
         echo $this->body;
-        break;
+        exit;
 
-      default:
-        # code...
-        break;
+      case EnabledContentTypes::ApplicationJson:
+        echo json_encode($this->body, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        exit;
     }
   }
 }
