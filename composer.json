@@ -11,10 +11,16 @@
 			"App\\": "App/"
 		}
 	},
+	"scripts": {
+		"serve": "php -S localhost:8000 -t public"
+	},
 	"authors": [
 		{
 			"name": "Adriano Miranda",
 			"email": "adrjmiranda@gmail.com"
 		}
-	]
+	],
+	"config": {
+		"process-timeout": 0
+	}
 }

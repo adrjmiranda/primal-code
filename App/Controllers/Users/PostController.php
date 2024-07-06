@@ -3,7 +3,6 @@
 namespace App\Controllers\Users;
 
 use App\Http\Request;
-use App\Models\BasicConditions;
 use App\Models\CategoryModel;
 use App\Models\CommentModel;
 use App\Models\PostModel;

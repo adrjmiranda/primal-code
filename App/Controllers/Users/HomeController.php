@@ -3,10 +3,10 @@
 namespace App\Controllers\Users;
 
 use App\Http\Request;
-use App\Models\BasicConditions;
 use App\Utils\Template\Generator;
 use App\Models\CategoryModel;
 use App\Models\PostModel;
+use App\Settings\Cache\Main as Cache;
 
 class HomeController
 {
@@ -35,6 +35,17 @@ class HomeController
 
   public function about(Request $request, array $params)
   {
+    $cacheKey = $request->getUri();
+    $cacheData = Cache::getCache($cacheKey);
+
+    if ($cacheData !== false) {
+      echo $cacheData;
+    } else {
+      $newData = Generator::render('Users/about');
+      Cache::setCache($cacheKey, $newData, 10);
+
+      return $newData;
+    }
   }
 
   public function getPostsByCategory(Request $request, array $params)
