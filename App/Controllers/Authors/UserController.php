@@ -3,6 +3,7 @@
 namespace App\Controllers\Authors;
 
 use App\Http\Request;
+use App\Models\CommentModel;
 use App\Models\UserModel;
 
 class UserController
@@ -14,7 +15,9 @@ class UserController
     $user = (new UserModel)->findOne('id', $id) ?? null;
 
     if ($user instanceof UserModel) {
-      $user->delete();
+      if ($user->delete()) {
+        (new CommentModel)->removeSpecific('user_id', $id);
+      }
 
       $request->getRouter()->redirect('/authors/dashboard/users');
     } else {
