@@ -70,6 +70,11 @@ class PostController
 
     if ($image['error'] == UPLOAD_ERR_OK) {
       $imageDir = __DIR__ . '/../../../public/img/posts/';
+
+      if (!is_dir($imageDir)) {
+        mkdir($imageDir, 0755, true);
+      }
+
       $imageName = $slug . '.' . pathinfo($image['name'], PATHINFO_EXTENSION);
 
       $imagePath = $imageDir . $imageName;
