@@ -5,12 +5,18 @@
 $router->get(
   '/users/login',
   'App\\Controllers\\Users\\LoginController@index',
-  ['App\\Http\\Middlewares\\Users\\RequireLogout']
+  [
+    'App\\Http\\Middlewares\\Users\\RequireLogout',
+    'App\\Http\\Middlewares\\CSRF\\Create'
+  ]
 );
 $router->post(
   '/users/login',
   'App\\Controllers\\Users\\LoginController@login',
-  ['App\\Http\\Middlewares\\Users\\RequireLogout']
+  [
+    'App\\Http\\Middlewares\\Users\\RequireLogout',
+    'App\\Http\\Middlewares\\CSRF\\Checks'
+  ]
 );
 
 // Register
@@ -18,13 +24,19 @@ $router->post(
 $router->get(
   '/users/register',
   'App\\Controllers\\Users\\RegisterController@index',
-  ['App\\Http\\Middlewares\\Users\\RequireLogout']
+  [
+    'App\\Http\\Middlewares\\Users\\RequireLogout',
+    'App\\Http\\Middlewares\\CSRF\\Create'
+  ]
 );
 
 $router->post(
   '/users/register',
   'App\\Controllers\\Users\\RegisterController@register',
-  ['App\\Http\\Middlewares\\Users\\RequireLogout']
+  [
+    'App\\Http\\Middlewares\\Users\\RequireLogout',
+    'App\\Http\\Middlewares\\CSRF\\Checks'
+  ]
 );
 
 // Logout

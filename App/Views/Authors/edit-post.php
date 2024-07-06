@@ -22,6 +22,8 @@ Generator::extendLayout('Authors/master');
 		<div class="content-data" id="post-form">
 			<div class="inner">
 				<form action="/authors/post/update" id="editor-form" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+
 					<input type="hidden" name="id" value="<?= isset($data['id']) ? $data['id'] : '' ?>">
 
 					<div class="input-field">

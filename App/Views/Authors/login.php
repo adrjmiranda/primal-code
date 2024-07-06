@@ -7,7 +7,9 @@ Generator::extendLayout('Authors/auth');
 
 <div id="auth">
   <div class="container">
-    <form action="<?= $base_url ?>/authors/login" method="post">
+    <form action="/authors/login" method="post">
+      <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+
       <div class="form-header">
         <div class="logo">
           <img src="<?= $base_url ?>/img/code.png" alt="Primal Code Logo" loading="eager" />

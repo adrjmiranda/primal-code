@@ -22,6 +22,8 @@ Generator::extendLayout('Authors/master');
 		<div class="content-data" id="post-form">
 			<div class="inner">
 				<form action="/authors/post/create" id="editor-form" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+
 					<p class="form_error"><?= isset($errors['create_error']) ? $errors['create_error'] : '' ?></p>
 					<div class="input-field">
 						<label for="image">Choose an image:</label>

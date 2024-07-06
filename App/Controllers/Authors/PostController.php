@@ -155,7 +155,6 @@ class PostController
 
   public function update(Request $request, array $params)
   {
-
     $postData = $request->getPostVars();
 
     $id = (int) ($postData['id'] ?? '');

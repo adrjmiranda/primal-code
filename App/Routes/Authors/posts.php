@@ -5,13 +5,19 @@
 $router->get(
   '/authors/post/create',
   'App\\Controllers\\Authors\\PostController@create',
-  ['App\\Http\\Middlewares\\Authors\\RequireLogin']
+  [
+    'App\\Http\\Middlewares\\Authors\\RequireLogin',
+    'App\\Http\\Middlewares\\CSRF\\Create'
+  ]
 );
 
 $router->post(
   '/authors/post/create',
   'App\\Controllers\\Authors\\PostController@store',
-  ['App\\Http\\Middlewares\\Authors\\RequireLogin']
+  [
+    'App\\Http\\Middlewares\\Authors\\RequireLogin',
+    'App\\Http\\Middlewares\\CSRF\\Checks'
+  ]
 );
 
 // Edit post
@@ -19,13 +25,19 @@ $router->post(
 $router->get(
   '/authors/post/edit/{id:%d}',
   'App\\Controllers\\Authors\\PostController@edit',
-  ['App\\Http\\Middlewares\\Authors\\RequireLogin']
+  [
+    'App\\Http\\Middlewares\\Authors\\RequireLogin',
+    'App\\Http\\Middlewares\\CSRF\\Create'
+  ]
 );
 
 $router->post(
   '/authors/post/update',
   'App\\Controllers\\Authors\\PostController@update',
-  ['App\\Http\\Middlewares\\Authors\\RequireLogin']
+  [
+    'App\\Http\\Middlewares\\Authors\\RequireLogin',
+    'App\\Http\\Middlewares\\CSRF\\Checks'
+  ]
 );
 
 // Change visibility

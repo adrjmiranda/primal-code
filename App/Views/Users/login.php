@@ -21,6 +21,8 @@
 	<div id="auth">
 		<div class="container">
 			<form action="/users/login" method="post">
+			<input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+
 				<h1><ion-icon name="code-slash"></ion-icon>Login</h1>
 
 				<div class="input-field">

@@ -3,6 +3,8 @@
     <div class="container">
       <div class="content">
         <form action="/post/comment" id="comment-form" method="post">
+          <input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+
           <input type="hidden" name="post_id" value="<?= $post->id ?>">
 
           <label for="comment">Leave your comment about the post:</label>

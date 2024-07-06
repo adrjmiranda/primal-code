@@ -21,6 +21,8 @@
 	<div id="auth">
 		<div class="container">
 			<form action="/users/register" method="post">
+				<input type="hidden" name="csrf" value="<?= $_SESSION['csrf'] ?>">
+
 				<h1><ion-icon name="code-slash"></ion-icon>Register</h1>
 
 				<?php if (isset($errors['register'])): ?>
