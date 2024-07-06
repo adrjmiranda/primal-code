@@ -13,7 +13,7 @@
 
       <li><a href="/posts/<?= $page_number ?>" class="active"><?= $page_number ?></a></li>
 
-      <?php if (($post_number + 1) < $number_of_pages): ?>
+      <?php if (($page_number + 1) <= $number_of_pages): ?>
         <li><a href="/posts/<?= $page_number + 1 ?>"><?= $page_number + 1 ?></a></li>
       <?php endif; ?>
 
@@ -23,7 +23,7 @@
       <?php endif; ?>
     </ul>
 
-    <?php if (($post_number + 1) < $number_of_pages): ?>
+    <?php if (($page_number + 1) < $number_of_pages): ?>
       <a href="/posts/<?= $page_number + 1 ?>" class="link-arrow">
         <ion-icon name="play-circle-outline"></ion-icon>
       </a>
