@@ -2,7 +2,7 @@
 
 ## Welcome to the Primal Code repository!
 
-Primal Code is a technology blog focused on bringing you the latest news, tutorials, and insights about programming, web development, and technology trends. Our goal is to provide educational and inspiring content for programmers of all levels, from beginners to industry veterans.
+[Primal Code](https://primalcode.great-site.net) is a technology blog focused on bringing you the latest news, tutorials, and insights about programming, web development, and technology trends. Our goal is to provide educational and inspiring content for programmers of all levels, from beginners to industry veterans.
 
 ### Key Features:
 
