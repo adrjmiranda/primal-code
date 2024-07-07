@@ -1,7 +1,7 @@
 <?php
 use App\Utils\Template\Generator;
 
-Generator::extendLayout('Authors/master');
+Generator::extendLayout('Authors/edmaster');
 ?>
 
 <div id="content">
@@ -86,30 +86,3 @@ Generator::extendLayout('Authors/master');
 		</div>
 	</div>
 </div>
-
-<!-- TinyMCE -->
-
-<script src="https://cdn.tiny.cloud/1/<?= $tinymce_api_key ?>/tinymce/7/tinymce.min.js"
-	referrerpolicy="origin"></script>
-
-<script>
-	tinymce.init({
-		selector: 'textarea#editor',
-		content_css: '<?= $base_url ?>/css/authors/editor.css',
-		height: 'calc(100% - 4rem)',
-		plugins:
-			'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-		toolbar:
-			'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-		tinycomments_mode: 'embedded',
-		tinycomments_author: 'Author name',
-		mergetags_list: [
-			{ value: 'First.Name', title: 'First Name' },
-			{ value: 'Email', title: 'Email' },
-		],
-		ai_request: (request, respondWith) =>
-			respondWith.string(() =>
-				Promise.reject('See docs to implement AI Assistant')
-			),
-	});
-</script>

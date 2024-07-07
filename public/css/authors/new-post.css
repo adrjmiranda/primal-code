@@ -58,3 +58,21 @@
 #editor-form .form_error {
 	font-weight: 500;
 }
+
+#editor-form #editor {
+	color: white;
+}
+
+.note-placeholder {
+	color: var(--yellow);
+}
+
+.note-editor,
+.note-editable {
+	height: 100%;
+	height: 684px;
+}
+
+.note-editing-area {
+	height: 644px;
+}
