@@ -38,7 +38,6 @@ use App\Utils\Template\Generator;
     $('#editor').summernote({
       placeholder: 'Hello stand alone ui',
       tabsize: 2,
-      // height: '100vh',
       toolbar: [
         ['style', ['style']],
         ['font', ['bold', 'underline', 'clear']],
